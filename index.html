@@ -45,10 +45,12 @@
     <section class="products">
       <h2>Products</h2>
       <div class="cards">
-        <div class="card product">
-          <h3>ClockRings</h3>
-          <p>A shift-tracking app for workers paid in decimal hours — see standard and decimal time side by side, with punch-based clock in/out tracking.</p>
-          <a class="button secondary" href="https://apps.apple.com/app/id6778179121" target="_blank" rel="noopener">View on the App Store</a>
+        <div class="card product" id="clockrings-card">
+          <div class="app-info">
+            <h3>ClockRings</h3>
+            <p>A shift-tracking app for workers paid in decimal hours — see standard and decimal time side by side, with punch-based clock in/out tracking.</p>
+            <a class="button secondary" href="https://apps.apple.com/app/id6778179121" target="_blank" rel="noopener">View on the App Store</a>
+          </div>
         </div>
       </div>
     </section>
@@ -88,6 +90,56 @@
           '?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
       }, { once: true });
     });
+
+    window.renderClockRingsApp = function (data) {
+      var app = data && data.results && data.results[0];
+      var card = document.getElementById('clockrings-card');
+      if (!app || !card) return;
+
+      var icon = document.createElement('img');
+      icon.className = 'app-icon';
+      icon.src = app.artworkUrl100;
+      icon.alt = app.trackName + ' icon';
+
+      var info = document.createElement('div');
+      info.className = 'app-info';
+
+      var h3 = document.createElement('h3');
+      h3.textContent = app.trackName;
+
+      var p = document.createElement('p');
+      p.textContent = (app.description || '').split('\n')[0];
+
+      var meta = document.createElement('p');
+      meta.className = 'app-meta';
+      var bits = [app.formattedPrice || 'Free'];
+      if (app.averageUserRating) {
+        bits.push(app.averageUserRating.toFixed(1) + ' ★ (' + app.userRatingCount + ')');
+      }
+      meta.textContent = bits.join(' · ');
+
+      var link = document.createElement('a');
+      link.className = 'button secondary';
+      link.href = app.trackViewUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'View on the App Store';
+
+      info.appendChild(h3);
+      info.appendChild(p);
+      info.appendChild(meta);
+      info.appendChild(link);
+
+      card.innerHTML = '';
+      card.appendChild(icon);
+      card.appendChild(info);
+    };
+
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://itunes.apple.com/lookup?id=6778179121&callback=renderClockRingsApp';
+      document.body.appendChild(script);
+    })();
   </script>
 </body>
 </html>

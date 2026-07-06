@@ -8,6 +8,17 @@
   --max-width: 880px;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f4f5f7;
+    --text: #14161c;
+    --text-dim: #5b6472;
+    --accent: #2f6fe4;
+    --border: #e3e5ea;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -112,6 +123,27 @@ h2 {
 
 .card.product {
   text-align: left;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 22%;
+  flex-shrink: 0;
+}
+
+.app-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-meta {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0 0 16px;
 }
 
 .card.video-card {
