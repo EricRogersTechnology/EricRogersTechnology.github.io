@@ -45,15 +45,10 @@ section {
 
 .hero {
   text-align: center;
-  border-bottom: 1px solid var(--border);
 }
 
 .hero-top {
   padding: 20px 20px 24px;
-}
-
-.hero-divider {
-  border-top: 1px solid var(--border);
 }
 
 .hero-bottom {
@@ -294,7 +289,6 @@ h2 {
 }
 
 footer {
-  border-top: 1px solid var(--border);
   text-align: center;
   color: var(--text-dim);
 }
