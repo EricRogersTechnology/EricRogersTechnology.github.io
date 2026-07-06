@@ -75,15 +75,42 @@
 
     <section class="youtube" id="youtube">
       <h2>YouTube</h2>
-      <div class="cards">
-        <div class="card video-card">
-          <div class="video-embed" data-video-id="Obnq3FWigPc">
-            <img src="https://i.ytimg.com/vi/Obnq3FWigPc/hqdefault.jpg" alt="Clock Rings - Operations video thumbnail" loading="lazy">
-            <button class="play-button" aria-label="Play video"></button>
+      <!-- YOUTUBE_GRID_START -->
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/shorts/Obnq3FWigPc" target="_blank" rel="noopener">
+          <div class="video-card__thumb-wrap">
+            <img class="video-card__thumb" src="https://i.ytimg.com/vi/Obnq3FWigPc/hqdefault.jpg" alt="Clock Rings - Operations thumbnail" loading="lazy">
+            <div class="video-card__play">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </div>
           </div>
-          <h3>Clock Rings - Operations</h3>
-          <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">More on YouTube</a>
-        </div>
+          <p class="video-card__title">Clock Rings - Operations</p>
+          <p class="video-card__date">July 5, 2026</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/shorts/s4h6pxfFhpQ" target="_blank" rel="noopener">
+          <div class="video-card__thumb-wrap">
+            <img class="video-card__thumb" src="https://i.ytimg.com/vi/s4h6pxfFhpQ/hqdefault.jpg" alt="Clock Rings – Dashboard thumbnail" loading="lazy">
+            <div class="video-card__play">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <p class="video-card__title">Clock Rings – Dashboard</p>
+          <p class="video-card__date">July 4, 2026</p>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/shorts/usnko46NIrE" target="_blank" rel="noopener">
+          <div class="video-card__thumb-wrap">
+            <img class="video-card__thumb" src="https://i.ytimg.com/vi/usnko46NIrE/hqdefault.jpg" alt="Clock Rings - Clocks &amp; Watches thumbnail" loading="lazy">
+            <div class="video-card__play">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <p class="video-card__title">Clock Rings - Clocks &amp; Watches</p>
+          <p class="video-card__date">July 4, 2026</p>
+        </a>
+      </div>
+      <!-- YOUTUBE_GRID_END -->
+      <div class="youtube-more">
+        <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">More on YouTube</a>
       </div>
     </section>
 
@@ -101,14 +128,6 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.video-embed').forEach(function (embed) {
-      embed.addEventListener('click', function () {
-        var id = embed.dataset.videoId;
-        embed.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
-          '?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-      }, { once: true });
-    });
-
     window.renderClockRingsApp = function (data) {
       var app = data && data.results && data.results[0];
       var card = document.getElementById('clockrings-card');
