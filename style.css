@@ -150,8 +150,6 @@ main {
 
 section + section {
   margin-top: 48px;
-  padding-top: 48px;
-  border-top: 1px solid var(--border);
 }
 
 h2 {
@@ -343,7 +341,6 @@ footer a:hover {
 
   section + section {
     margin-top: 40px;
-    padding-top: 40px;
   }
 
   .card.product {
