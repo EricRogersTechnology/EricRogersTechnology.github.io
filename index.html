@@ -56,10 +56,13 @@
     <section class="youtube">
       <h2>YouTube</h2>
       <div class="cards">
-        <div class="card">
-          <h3>Eric Rogers Technology</h3>
-          <p>Tutorials and walkthroughs on Apple tech support, smart home automation, and more.</p>
-          <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">Watch on YouTube</a>
+        <div class="card video-card">
+          <div class="video-embed" data-video-id="Obnq3FWigPc">
+            <img src="https://i.ytimg.com/vi/Obnq3FWigPc/hqdefault.jpg" alt="Clock Rings - Operations video thumbnail" loading="lazy">
+            <button class="play-button" aria-label="Play video"></button>
+          </div>
+          <h3>Clock Rings - Operations</h3>
+          <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">More on YouTube</a>
         </div>
       </div>
     </section>
@@ -77,5 +80,14 @@
     <p class="copyright">&copy; 2026 Eric Rogers Technology</p>
   </footer>
 
+  <script>
+    document.querySelectorAll('.video-embed').forEach(function (embed) {
+      embed.addEventListener('click', function () {
+        var id = embed.dataset.videoId;
+        embed.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
+          '?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
