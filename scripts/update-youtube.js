@@ -7,11 +7,11 @@ const FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_
 const INDEX_PATH = path.join(__dirname, '..', 'index.html');
 const VIDEO_COUNT = 3;
 
-function fetchFeed(url) {
+function fetchFeedOnce(url) {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        return fetchFeed(res.headers.location).then(resolve, reject);
+        return fetchFeedOnce(res.headers.location).then(resolve, reject);
       }
       if (res.statusCode !== 200) {
         return reject(new Error(`Feed request failed: ${res.statusCode}`));
@@ -21,6 +21,22 @@ function fetchFeed(url) {
       res.on('end', () => resolve(data));
     }).on('error', reject);
   });
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchFeed(url, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      return await fetchFeedOnce(url);
+    } catch (err) {
+      if (attempt === retries) throw err;
+      console.log(`Feed fetch attempt ${attempt} failed (${err.message}), retrying...`);
+      await sleep(attempt * 2000);
+    }
+  }
 }
 
 function escapeAttr(str) {
