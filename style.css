@@ -382,7 +382,7 @@ h2 {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 }
 
-.video-card__title {
+.card .video-card__title {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.35;
@@ -390,7 +390,7 @@ h2 {
   margin: 0 0 6px;
 }
 
-.video-card__date {
+.card .video-card__date {
   font-size: 0.8rem;
   color: var(--text-dim);
   margin: 0;
@@ -398,6 +398,7 @@ h2 {
 
 .youtube-more {
   text-align: center;
+  margin-top: 24px;
 }
 
 .blog-more {

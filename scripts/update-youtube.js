@@ -77,7 +77,7 @@ function parseAllEntries(xml) {
 
 function renderCard(video) {
   return (
-    `        <a class="video-card" href="${escapeAttr(video.link)}" target="_blank" rel="noopener">\n` +
+    `        <a class="video-card card" href="${escapeAttr(video.link)}" target="_blank" rel="noopener">\n` +
     `          <div class="video-card__thumb-wrap">\n` +
     `            <img class="video-card__thumb" src="${video.thumbnailUrl}" alt="${escapeAttr(video.title)} thumbnail" loading="lazy">\n` +
     `            <div class="video-card__play">\n` +
