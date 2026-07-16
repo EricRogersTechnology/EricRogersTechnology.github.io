@@ -295,7 +295,7 @@ h2 {
 
 .card p {
   color: var(--text-dim);
-  margin: 0 0 16px;
+  margin-bottom: 16px;
 }
 
 .card.product {
