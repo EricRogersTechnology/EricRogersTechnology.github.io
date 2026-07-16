@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Rogers Technology</title>
-  <meta name="description" content="Apple Developer, Home Automation & Tech Support. Apple tech support, training, IT, smart home consulting, and website development — remote to your Mac, iPhone, or iPad.">
+  <title>Merit — Eric Rogers Technology</title>
+  <meta name="description" content="Merit is a family chore, points, and behavior-tracking app — currently a work in progress.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
     (function () {
@@ -18,23 +18,23 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
-<body id="top">
+<body>
 
   <nav class="topbar" id="topbar" aria-label="Primary">
     <div class="container topbar-inner">
-      <a href="#top" class="topbar-brand">
-        <img class="topbar-logo logo-dark" src="ert-logo-dark.png" alt="Eric Rogers Technology">
-        <img class="topbar-logo logo-light" src="ert-logo-light.png" alt="Eric Rogers Technology">
+      <a href="/" class="topbar-brand">
+        <img class="topbar-logo logo-dark" src="/ert-logo-dark.png" alt="Eric Rogers Technology">
+        <img class="topbar-logo logo-light" src="/ert-logo-light.png" alt="Eric Rogers Technology">
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="topbar-links" aria-label="Toggle menu">
@@ -42,135 +42,56 @@
       </button>
 
       <div class="topbar-links" id="topbar-links">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#youtube">YouTube</a>
+        <a href="/#services">Services</a>
+        <a href="/#products">Products</a>
+        <a href="/#youtube">YouTube</a>
         <a href="/blog/">Blog</a>
-        <a href="#contact">Contact</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container hero-top">
-      <h1 class="brand">
-        <a href="#top">
-          <img class="logo logo-dark" src="ert-logo-dark.png" alt="Eric Rogers Technology">
-          <img class="logo logo-light" src="ert-logo-light.png" alt="Eric Rogers Technology">
-        </a>
-      </h1>
-    </div>
-
-    <div class="container hero-bottom">
-      <div class="card hero-card">
-        <p class="tagline">Apple Developer, Home Automation &amp; Tech Support</p>
-        <p class="subtext">
-          Apple tech support, training, information technology, smart home consulting,
-          and website development. No matter where you live, I can come to you remotely
-          via your Mac, iPhone, or iPad.
-        </p>
-        <a class="button" href="https://calendly.com/rogerse/ts" target="_blank" rel="noopener">Book a Session</a>
-      </div>
+  <header class="page-hero">
+    <div class="container">
+      <span class="wip-badge">Work in Progress</span>
+      <h1>Merit</h1>
+      <p class="page-meta">A family chore, points &amp; behavior-tracking app</p>
+      <p class="subtext">
+        Merit helps families track chores, award points, and build good habits together —
+        with kid profiles, an append-only points ledger, and a growing library of
+        ready-made chores. Not yet released; built with the same private, on-device
+        philosophy as ClockRings.
+      </p>
     </div>
   </header>
 
-  <main>
+  <div class="container back-link-row">
+    <a class="back-link" href="/#products">&larr; Back to Products</a>
+  </div>
 
-    <section class="services" id="services">
-      <div class="container">
-        <h2>Services</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Apple Tech Support</h3>
-            <p>Troubleshooting, setup, and one-on-one training for Mac, iPhone, and iPad — remote, wherever you are.</p>
-          </div>
-          <div class="card">
-            <h3>Smart Home Consulting</h3>
-            <p>Home automation planning and setup, from HomeKit basics to whole-home systems.</p>
-          </div>
-          <div class="card">
-            <h3>Website Development</h3>
-            <p>Simple, fast websites built and hosted the right way for individuals and small businesses.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="post-body">
 
-    <section class="products" id="products">
-      <div class="container">
-        <h2>Products</h2>
-        <div class="cards">
-          <div class="card product" id="clockrings-card">
-            <div class="app-info">
-              <h3>ClockRings</h3>
-              <p>A shift-tracking app for workers paid in decimal hours — see standard and decimal time side by side, with punch-based clock in/out tracking.</p>
-              <a class="button secondary" href="/products/clockrings.html">About ClockRings</a>
-            </div>
-          </div>
-          <div class="card product">
-            <div class="app-info">
-              <span class="wip-badge">Work in Progress</span>
-              <h3>Merit</h3>
-              <p>A family chore, points &amp; behavior-tracking app — not yet released.</p>
-              <a class="button secondary" href="/products/merit.html">About Merit</a>
-            </div>
-          </div>
-          <div class="card product">
-            <div class="app-info">
-              <span class="wip-badge">Work in Progress</span>
-              <h3>Orbit</h3>
-              <p>A multiplatform life dashboard, organized into modules — not yet released.</p>
-              <a class="button secondary" href="/products/orbit.html">About Orbit</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h2>What it's shaping up to be</h2>
+    <p>
+      Merit started as a simple family chore-and-points system: a single owner profile plus
+      PIN-protected kid profiles, and an append-only ledger so points always have a clear,
+      trustworthy history. From there it's grown into more of a "Family Growth" app —
+      tracking behaviors and character traits with rating scales and trend charts, alongside
+      the chores themselves.
+    </p>
 
-    <section class="youtube" id="youtube">
-      <div class="container">
-        <h2>YouTube</h2>
-        <div class="card youtube-card">
-          <!-- YOUTUBE_GRID_START -->
-      <div class="video-grid">
-        <a class="video-card" href="https://www.youtube.com/watch?v=FK6XUSmACj0" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/FK6XUSmACj0/hqdefault.jpg" alt="Clock Rings - Punching &amp; Timecard thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings - Punching &amp; Timecard</p>
-          <p class="video-card__date">July 12, 2026</p>
-        </a>
-        <a class="video-card" href="https://www.youtube.com/shorts/Obnq3FWigPc" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/Obnq3FWigPc/hqdefault.jpg" alt="Clock Rings - Operations thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings - Operations</p>
-          <p class="video-card__date">July 5, 2026</p>
-        </a>
-        <a class="video-card" href="https://www.youtube.com/shorts/s4h6pxfFhpQ" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/s4h6pxfFhpQ/hqdefault.jpg" alt="Clock Rings – Dashboard thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings – Dashboard</p>
-          <p class="video-card__date">July 4, 2026</p>
-        </a>
-      </div>
-      <!-- YOUTUBE_GRID_END -->
-          <div class="youtube-more">
-            <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">More on YouTube</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h2>A real chore library</h2>
+    <p>
+      Rather than starting from a blank page, Merit is building out a master library of
+      hundreds of tagged, ready-to-assign chores organized into themed packs you can enable
+      as needed — so setting up a family's routine doesn't mean typing out every task by hand.
+    </p>
+
+    <h2>Status</h2>
+    <p>
+      Merit is actively in development and not yet available. Check back here or watch the
+      <a href="/blog/">blog</a> for updates as it gets closer to release.
+    </p>
 
   </main>
 
@@ -220,54 +141,6 @@
   </footer>
 
   <script>
-    window.renderClockRingsApp = function (data) {
-      var app = data && data.results && data.results[0];
-      var card = document.getElementById('clockrings-card');
-      if (!app || !card) return;
-
-      var icon = document.createElement('img');
-      icon.className = 'app-icon';
-      icon.src = app.artworkUrl100;
-      icon.alt = app.trackName + ' icon';
-
-      var info = document.createElement('div');
-      info.className = 'app-info';
-
-      var h3 = document.createElement('h3');
-      h3.textContent = app.trackName;
-
-      var p = document.createElement('p');
-      p.textContent = (app.description || '').split('\n')[0];
-
-      var meta = document.createElement('p');
-      meta.className = 'app-meta';
-      var bits = [app.formattedPrice || 'Free'];
-      if (app.averageUserRating) {
-        bits.push(app.averageUserRating.toFixed(1) + ' ★ (' + app.userRatingCount + ')');
-      }
-      meta.textContent = bits.join(' · ');
-
-      var link = document.createElement('a');
-      link.className = 'button secondary';
-      link.href = '/products/clockrings.html';
-      link.textContent = 'About ClockRings';
-
-      info.appendChild(h3);
-      info.appendChild(p);
-      info.appendChild(meta);
-      info.appendChild(link);
-
-      card.innerHTML = '';
-      card.appendChild(icon);
-      card.appendChild(info);
-    };
-
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://itunes.apple.com/lookup?id=6778179121&callback=renderClockRingsApp';
-      document.body.appendChild(script);
-    })();
-
     (function () {
       var toggle = document.getElementById('menu-toggle');
       var links = document.getElementById('topbar-links');
