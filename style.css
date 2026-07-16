@@ -39,8 +39,134 @@ body {
   padding: 0 20px;
 }
 
-section {
-  scroll-margin-top: 24px;
+section,
+footer {
+  scroll-margin-top: 76px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.topbar-brand {
+  display: inline-block;
+  line-height: 0;
+}
+
+.topbar-logo {
+  height: 28px;
+  width: auto;
+}
+
+.topbar-links {
+  display: flex;
+  gap: 24px;
+}
+
+.topbar-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.topbar-links a:hover {
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.burger,
+.burger::before,
+.burger::after {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.burger {
+  position: relative;
+  display: block;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: transform 0.2s ease;
+}
+
+.burger::before {
+  top: -7px;
+}
+
+.burger::after {
+  top: 7px;
+}
+
+.menu-toggle[aria-expanded="true"] .burger {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .burger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .burger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .topbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 4px 20px 12px;
+  }
+
+  .topbar-links.is-open {
+    display: flex;
+  }
+
+  .topbar-links a {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .topbar-links a:first-child {
+    border-top: none;
+  }
 }
 
 .hero {
@@ -82,26 +208,6 @@ section {
   .logo-light {
     display: block;
   }
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 24px;
-  margin: 0 0 32px;
-}
-
-.nav-links a {
-  color: var(--text-dim);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 4px 0;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
 }
 
 .tagline {

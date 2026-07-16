@@ -18,6 +18,26 @@
 </head>
 <body id="top">
 
+  <nav class="topbar" id="topbar" aria-label="Primary">
+    <div class="container topbar-inner">
+      <a href="#top" class="topbar-brand">
+        <img class="topbar-logo logo-dark" src="ert-logo-dark.png" alt="Eric Rogers Technology">
+        <img class="topbar-logo logo-light" src="ert-logo-light.png" alt="Eric Rogers Technology">
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="topbar-links" aria-label="Toggle menu">
+        <span class="burger"></span>
+      </button>
+
+      <div class="topbar-links" id="topbar-links">
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <header class="hero">
     <div class="container hero-top">
       <h1 class="brand">
@@ -29,13 +49,6 @@
     </div>
 
     <div class="container hero-bottom">
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
       <div class="card hero-card">
         <p class="tagline">Apple Developer, Home Automation &amp; Tech Support</p>
         <p class="subtext">
@@ -194,6 +207,24 @@
       var script = document.createElement('script');
       script.src = 'https://itunes.apple.com/lookup?id=6778179121&callback=renderClockRingsApp';
       document.body.appendChild(script);
+    })();
+
+    (function () {
+      var toggle = document.getElementById('menu-toggle');
+      var links = document.getElementById('topbar-links');
+      if (!toggle || !links) return;
+
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      links.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          links.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
     })();
   </script>
 </body>
