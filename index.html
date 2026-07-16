@@ -100,29 +100,29 @@
       <div class="container">
         <h2>Products</h2>
         <div class="cards">
-          <div class="card product" id="clockrings-card">
+          <a class="card product" id="clockrings-card" href="/products/clockrings.html">
             <div class="app-info">
               <h3>ClockRings</h3>
               <p>A shift-tracking app for workers paid in decimal hours — see standard and decimal time side by side, with punch-based clock in/out tracking.</p>
-              <a class="button secondary" href="/products/clockrings.html">About ClockRings</a>
+              <span class="button secondary">About ClockRings</span>
             </div>
-          </div>
-          <div class="card product">
+          </a>
+          <a class="card product" href="/products/merit.html">
             <div class="app-info">
               <span class="wip-badge">Work in Progress</span>
               <h3>Merit</h3>
               <p>A family chore, points &amp; behavior-tracking app — not yet released.</p>
-              <a class="button secondary" href="/products/merit.html">About Merit</a>
+              <span class="button secondary">About Merit</span>
             </div>
-          </div>
-          <div class="card product">
+          </a>
+          <a class="card product" href="/products/orbit.html">
             <div class="app-info">
               <span class="wip-badge">Work in Progress</span>
               <h3>Orbit</h3>
               <p>A multiplatform life dashboard, organized into modules — not yet released.</p>
-              <a class="button secondary" href="/products/orbit.html">About Orbit</a>
+              <span class="button secondary">About Orbit</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -273,9 +273,8 @@
       }
       meta.textContent = bits.join(' · ');
 
-      var link = document.createElement('a');
+      var link = document.createElement('span');
       link.className = 'button secondary';
-      link.href = '/products/clockrings.html';
       link.textContent = 'About ClockRings';
 
       info.appendChild(h3);
