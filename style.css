@@ -400,6 +400,11 @@ h2 {
   text-align: center;
 }
 
+.blog-more {
+  text-align: center;
+  margin-top: 24px;
+}
+
 @media (max-width: 700px) {
   .video-grid {
     grid-template-columns: 1fr;

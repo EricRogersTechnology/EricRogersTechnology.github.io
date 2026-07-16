@@ -375,6 +375,38 @@ function generateNewVideoPosts(allVideos) {
   return created;
 }
 
+function updateBlogPreview() {
+  const blogHtml = fs.readFileSync(BLOG_INDEX_PATH, 'utf8');
+  const blogBlockMatch = blogHtml.match(/<!-- BLOG_POSTS_START -->([\s\S]*?)<!-- BLOG_POSTS_END -->/);
+  if (!blogBlockMatch) {
+    throw new Error('Could not find BLOG_POSTS markers in blog/index.html');
+  }
+
+  const cardMatches = blogBlockMatch[1].match(/<a class="card"[\s\S]*?<\/a>/g) || [];
+  const topThree = cardMatches.slice(0, 3);
+  if (topThree.length === 0) return;
+
+  const indexHtml = fs.readFileSync(INDEX_PATH, 'utf8');
+  const previewPattern = /<!-- BLOG_PREVIEW_START -->[\s\S]*?<!-- BLOG_PREVIEW_END -->/;
+  if (!previewPattern.test(indexHtml)) {
+    throw new Error('Could not find BLOG_PREVIEW markers in index.html');
+  }
+
+  const replacement =
+    `<!-- BLOG_PREVIEW_START -->\n` +
+    topThree.map((card) => '          ' + card.trim()).join('\n') +
+    `\n          <!-- BLOG_PREVIEW_END -->`;
+
+  const updated = indexHtml.replace(previewPattern, replacement);
+  if (updated === indexHtml) {
+    console.log('Homepage blog preview already up to date.');
+    return;
+  }
+
+  fs.writeFileSync(INDEX_PATH, updated);
+  console.log('Updated homepage blog preview with the latest 3 posts.');
+}
+
 async function main() {
   const xml = await fetchFeed(FEED_URL);
   const allVideos = parseAllEntries(xml);
@@ -386,6 +418,8 @@ async function main() {
   if (created === 0) {
     console.log('No new Clock Rings videos to blog about.');
   }
+
+  updateBlogPreview();
 }
 
 main().catch((err) => {
