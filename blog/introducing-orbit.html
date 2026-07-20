@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Rogers Technology</title>
-  <meta name="description" content="Apple Developer, Home Automation & Tech Support. Apple tech support, training, IT, smart home consulting, and website development — remote to your Mac, iPhone, or iPad.">
+  <title>Introducing Orbit — Eric Rogers Technology</title>
+  <meta name="description" content="Orbit is a personal life dashboard app — here's what's built so far, and how to join the TestFlight beta.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
     (function () {
@@ -18,23 +18,23 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
-  <link rel="icon" href="favicon.ico?v=2" sizes="any">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="/style.css?v=2">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
-<body id="top">
+<body>
 
   <nav class="topbar" id="topbar" aria-label="Primary">
     <div class="container topbar-inner">
-      <a href="#top" class="topbar-brand">
-        <img class="topbar-logo logo-dark" src="ert-logo-dark.png" alt="Eric Rogers Technology">
-        <img class="topbar-logo logo-light" src="ert-logo-light.png" alt="Eric Rogers Technology">
+      <a href="/" class="topbar-brand">
+        <img class="topbar-logo logo-dark" src="/ert-logo-dark.png" alt="Eric Rogers Technology">
+        <img class="topbar-logo logo-light" src="/ert-logo-light.png" alt="Eric Rogers Technology">
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="topbar-links" aria-label="Toggle menu">
@@ -42,163 +42,74 @@
       </button>
 
       <div class="topbar-links" id="topbar-links">
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
+        <a href="/#services">Services</a>
+        <a href="/#products">Products</a>
+        <a href="/#youtube">YouTube</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container hero-top">
-      <h1 class="brand">
-        <a href="#top">
-          <img class="logo logo-dark" src="ert-logo-dark.png" alt="Eric Rogers Technology">
-          <img class="logo logo-light" src="ert-logo-light.png" alt="Eric Rogers Technology">
-        </a>
-      </h1>
-    </div>
-
-    <div class="container hero-bottom">
-      <div class="card hero-card">
-        <p class="tagline">Apple Developer, Home Automation &amp; Tech Support</p>
-        <p class="subtext">
-          Apple tech support, training, information technology, smart home consulting,
-          and website development. No matter where you live, I can come to you remotely
-          via your Mac, iPhone, or iPad.
-        </p>
-        <a class="button" href="https://calendly.com/rogerse/ts" target="_blank" rel="noopener">Book a Session</a>
-      </div>
+  <header class="page-hero">
+    <div class="container">
+      <img class="app-icon-lg" src="/orbit-icon.png" alt="Orbit app icon">
+      <span class="wip-badge">Work in Progress</span>
+      <h1>Introducing Orbit</h1>
+      <p class="page-meta">July 2026</p>
     </div>
   </header>
 
-  <main>
+  <div class="container back-link-row">
+    <a class="back-link" href="/blog/">&larr; Back to Blog</a>
+  </div>
 
-    <section class="services" id="services">
-      <div class="container">
-        <h2>Services</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Apple Tech Support</h3>
-            <p>Troubleshooting, setup, and one-on-one training for Mac, iPhone, and iPad — remote, wherever you are.</p>
-          </div>
-          <div class="card">
-            <h3>Smart Home Consulting</h3>
-            <p>Home automation planning and setup, from HomeKit basics to whole-home systems.</p>
-          </div>
-          <div class="card">
-            <h3>Website Development</h3>
-            <p>Simple, fast websites built and hosted the right way for individuals and small businesses.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="post-body">
 
-    <section class="products" id="products">
-      <div class="container">
-        <h2>Products</h2>
-        <div class="cards">
-          <a class="card product" id="clockrings-card" href="/products/clockrings.html">
-            <div class="app-info">
-              <h3>ClockRings</h3>
-              <p>A shift-tracking app for workers paid in decimal hours — see standard and decimal time side by side, with punch-based clock in/out tracking.</p>
-              <span class="button secondary">About ClockRings</span>
-            </div>
-          </a>
-          <a class="card product" href="/products/merit.html">
-            <img class="app-icon" src="/merit-icon.png" alt="Merit icon">
-            <div class="app-info">
-              <span class="wip-badge">Work in Progress</span>
-              <h3>Merit</h3>
-              <p>A family chore, points &amp; behavior-tracking app — not yet released.</p>
-              <span class="button secondary">About Merit</span>
-            </div>
-          </a>
-          <a class="card product" href="/products/orbit.html">
-            <img class="app-icon" src="/orbit-icon.png" alt="Orbit icon">
-            <div class="app-info">
-              <span class="wip-badge">Work in Progress</span>
-              <h3>Orbit</h3>
-              <p>A multiplatform life dashboard, organized into modules — not yet released.</p>
-              <span class="button secondary">About Orbit</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+    <p>
+      Orbit is the third app out of Eric Rogers Technology — a personal life dashboard that
+      pulls the different threads of everyday life into one place, built with the same
+      private, on-device philosophy as ClockRings. It's not on the App Store yet, but it's
+      far enough along to talk about, and the TestFlight beta is open if you want to try it
+      early.
+    </p>
 
-    <section class="blog-preview" id="blog">
-      <div class="container">
-        <h2>Blog</h2>
-        <div class="cards">
-          <!-- BLOG_PREVIEW_START -->
-          <a class="card" href="/blog/introducing-orbit.html">
-        <p class="post-date">July 20, 2026</p>
-        <h3>Introducing Orbit</h3>
-        <p>A personal life dashboard app — what's built so far, and how to join the TestFlight beta.</p>
-      </a>
-          <a class="card" href="/blog/introducing-merit.html">
-        <p class="post-date">July 20, 2026</p>
-        <h3>Introducing Merit</h3>
-        <p>A family chores, points &amp; behavior-tracking app — what's built so far, and how to join the TestFlight beta.</p>
-      </a>
-          <a class="card" href="/blog/video-FK6XUSmACj0.html">
-        <p class="post-date">July 12, 2026</p>
-        <h3>Clock Rings – Punching &amp; Timecard</h3>
-        <p>A full tour walkthrough, fixing punches after the fact, bulk-editing your timecard, and the 5-second undo toast.</p>
-      </a>
-          <!-- BLOG_PREVIEW_END -->
-        </div>
-        <div class="blog-more">
-          <a class="button secondary" href="/blog/">Read the Blog</a>
-        </div>
-      </div>
-    </section>
+    <p>
+      The idea behind Orbit is frictionless capture: jot anything into a single box — text or
+      voice — and Orbit's on-device AI cleans it up and files it as a task, note, idea,
+      person, or quote. A Today dashboard surfaces what actually matters, and Ask Orbit is
+      right there to answer questions using everything you've stored, all without your data
+      ever leaving the device.
+    </p>
 
-    <section class="youtube" id="youtube">
-      <div class="container">
-        <h2>YouTube</h2>
-        <!-- YOUTUBE_GRID_START -->
-      <div class="video-grid">
-        <a class="video-card card" href="https://www.youtube.com/watch?v=FK6XUSmACj0" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/FK6XUSmACj0/hqdefault.jpg" alt="Clock Rings - Punching &amp; Timecard thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings - Punching &amp; Timecard</p>
-          <p class="video-card__date">July 12, 2026</p>
-        </a>
-        <a class="video-card card" href="https://www.youtube.com/shorts/Obnq3FWigPc" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/Obnq3FWigPc/hqdefault.jpg" alt="Clock Rings - Operations thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings - Operations</p>
-          <p class="video-card__date">July 5, 2026</p>
-        </a>
-        <a class="video-card card" href="https://www.youtube.com/shorts/s4h6pxfFhpQ" target="_blank" rel="noopener">
-          <div class="video-card__thumb-wrap">
-            <img class="video-card__thumb" src="https://i.ytimg.com/vi/s4h6pxfFhpQ/hqdefault.jpg" alt="Clock Rings – Dashboard thumbnail" loading="lazy">
-            <div class="video-card__play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
-            </div>
-          </div>
-          <p class="video-card__title">Clock Rings – Dashboard</p>
-          <p class="video-card__date">July 4, 2026</p>
-        </a>
-      </div>
-      <!-- YOUTUBE_GRID_END -->
-        <div class="youtube-more">
-          <a class="button secondary" href="https://www.youtube.com/@EricRogersTechnology" target="_blank" rel="noopener">More on YouTube</a>
-        </div>
-      </div>
-    </section>
+    <h2>What's built so far</h2>
+    <ul>
+      <li><strong>Capture &amp; Ask Orbit</strong> — one box to jot anything, plus an on-device AI chat that answers from everything you own</li>
+      <li><strong>Day / Week / Month / Year dashboards</strong> — the same modules, stepped back through any horizon</li>
+      <li><strong>Your day</strong> — a Briefing, a Timeline pulled from Calendar/Health/Photos, Focus sessions, Routines with streaks, Weather, and cross-everything Search</li>
+      <li><strong>Calendar, Reminders &amp; inbox</strong> — your real Apple Calendar and Reminders (not a duplicate), an Email glance, and automatic Deliveries detection</li>
+      <li><strong>Life admin</strong> — Projects, a Content pipeline, Work (pay-cycle/leave), Retirement forecasting, Garage (vehicles/maintenance), Travel, and a Calculator</li>
+      <li><strong>Money</strong> — a Stocks watchlist and your own App Sales, by day/week/month/year</li>
+      <li><strong>People &amp; memories</strong> — a People/CRM view, a Library with "on this day," a dedicated Journal, and Photos</li>
+      <li><strong>Every platform</strong> — iPhone, iPad, Mac, Apple TV, and Apple Watch, plus Home/Lock Screen widgets and Siri/Shortcuts/Spotlight/CarPlay support</li>
+      <li><strong>Notifications, a Lock screen (Face ID/Touch ID/Optic ID/passcode), and the same accent-color picker as ClockRings</strong></li>
+    </ul>
+
+    <p>
+      Everything syncs privately through your own iCloud — no account, no login, no
+      third-party servers.
+    </p>
+
+    <h2>Try it early</h2>
+    <p>
+      Orbit isn't on the App Store yet, but the TestFlight beta is open — join now to try it
+      before anyone else, bugs and all.
+    </p>
+    <a class="button" href="https://testflight.apple.com/join/XVz1r5Ay" target="_blank" rel="noopener">Join the TestFlight Beta</a>
+
+    <p style="margin-top: 32px;">
+      For the full feature rundown, see the <a href="/products/orbit.html">Orbit product page</a>.
+    </p>
 
   </main>
 
@@ -248,53 +159,6 @@
   </footer>
 
   <script>
-    window.renderClockRingsApp = function (data) {
-      var app = data && data.results && data.results[0];
-      var card = document.getElementById('clockrings-card');
-      if (!app || !card) return;
-
-      var icon = document.createElement('img');
-      icon.className = 'app-icon';
-      icon.src = app.artworkUrl100;
-      icon.alt = app.trackName + ' icon';
-
-      var info = document.createElement('div');
-      info.className = 'app-info';
-
-      var h3 = document.createElement('h3');
-      h3.textContent = app.trackName;
-
-      var p = document.createElement('p');
-      p.textContent = (app.description || '').split('\n')[0];
-
-      var meta = document.createElement('p');
-      meta.className = 'app-meta';
-      var bits = [app.formattedPrice || 'Free'];
-      if (app.averageUserRating) {
-        bits.push(app.averageUserRating.toFixed(1) + ' ★ (' + app.userRatingCount + ')');
-      }
-      meta.textContent = bits.join(' · ');
-
-      var link = document.createElement('span');
-      link.className = 'button secondary';
-      link.textContent = 'About ClockRings';
-
-      info.appendChild(h3);
-      info.appendChild(p);
-      info.appendChild(meta);
-      info.appendChild(link);
-
-      card.innerHTML = '';
-      card.appendChild(icon);
-      card.appendChild(info);
-    };
-
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://itunes.apple.com/lookup?id=6778179121&callback=renderClockRingsApp';
-      document.body.appendChild(script);
-    })();
-
     (function () {
       var toggle = document.getElementById('menu-toggle');
       var links = document.getElementById('topbar-links');
