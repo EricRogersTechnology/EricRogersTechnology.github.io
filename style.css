@@ -646,3 +646,22 @@ a.card {
 a.card:hover {
   border-color: var(--accent);
 }
+
+.beta-callout {
+  text-align: center;
+}
+
+.qr-card {
+  display: inline-block;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.qr-card img {
+  display: block;
+  width: 160px;
+  height: 160px;
+}
