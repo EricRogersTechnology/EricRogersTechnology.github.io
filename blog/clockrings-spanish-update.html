@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Eric Rogers Technology</title>
-  <meta name="description" content="Updates on ClockRings, Applytics, and other projects from Eric Rogers Technology.">
+  <title>What's new in Clock Rings 2026.08.15 — Eric Rogers Technology</title>
+  <meta name="description" content="Clock Rings 2026.08.15 brings full Spanish support, clock faces that actually move, and a big accessibility pass — now in TestFlight.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
     (function () {
@@ -53,61 +53,97 @@
 
   <header class="page-hero">
     <div class="container">
-      <h1>Blog</h1>
-      <p class="subtext">Updates on ClockRings, Applytics, and whatever else is in the works.</p>
+      <img class="app-icon-lg" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/d7/17/dcd7172a-199d-7924-279a-27be9b7aae9b/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/256x256bb.jpg" alt="ClockRings app icon">
+      <h1>What's new in Clock Rings 2026.08.15</h1>
+      <p class="page-meta">July 2026 · Now in TestFlight</p>
     </div>
   </header>
 
-  <main class="container blog-list">
-    <div class="cards">
-      <!-- BLOG_POSTS_START -->
-      <a class="card" href="/blog/clockrings-spanish-update.html">
-        <p class="post-date">July 26, 2026</p>
-        <h3>What's new in Clock Rings 2026.08.15</h3>
-        <p>Full Spanish support, clock faces that actually move, and a big accessibility pass — now in TestFlight.</p>
-      </a>
-      <a class="card" href="/blog/introducing-orbit.html">
-        <p class="post-date">July 20, 2026</p>
-        <h3>Introducing Orbit</h3>
-        <p>A personal life dashboard app — what's built so far, and how to join the TestFlight beta.</p>
-      </a>
-      <a class="card" href="/blog/introducing-merit.html">
-        <p class="post-date">July 20, 2026</p>
-        <h3>Introducing Merit</h3>
-        <p>A family chores, points &amp; behavior-tracking app — what's built so far, and how to join the TestFlight beta.</p>
-      </a>
-      <a class="card" href="/blog/video-FK6XUSmACj0.html">
-        <p class="post-date">July 12, 2026</p>
-        <h3>Clock Rings – Punching &amp; Timecard</h3>
-        <p>A full tour walkthrough, fixing punches after the fact, bulk-editing your timecard, and the 5-second undo toast.</p>
-      </a>
-      <a class="card" href="/blog/video-Obnq3FWigPc.html">
-        <p class="post-date">July 5, 2026</p>
-        <h3>Clock Rings – Operations</h3>
-        <p>Tracking time spent on individual operations during your shift, with automatic lunch removal and one-tap sharing.</p>
-      </a>
-      <a class="card" href="/blog/video-s4h6pxfFhpQ.html">
-        <p class="post-date">July 4, 2026</p>
-        <h3>Clock Rings – Dashboard</h3>
-        <p>Your pay period at a glance — live punch tracking, on-device pay estimates, and widgets.</p>
-      </a>
-      <a class="card" href="/blog/video-usnko46NIrE.html">
-        <p class="post-date">July 4, 2026</p>
-        <h3>Clock Rings – Clocks &amp; Watches</h3>
-        <p>A tour of the clock displays, Apple Watch faces, and complications.</p>
-      </a>
-      <a class="card" href="/blog/clockrings-live-on-app-store.html">
-        <p class="post-date">2026</p>
-        <h3>ClockRings is live on the App Store</h3>
-        <p>Built by a 20-year USPS Maintenance Support Clerk for postal and shift workers — free, private, and now available.</p>
-      </a>
-      <a class="card" href="/blog/applytics.html">
-        <p class="post-date">June 2026</p>
-        <h3>What Applytics does</h3>
-        <p>An open-source plugin that pulls your App Store Connect sales data onto a TRMNL e-ink display, once a day, via GitHub Actions.</p>
-      </a>
-      <!-- BLOG_POSTS_END -->
-    </div>
+  <div class="container back-link-row">
+    <a class="back-link" href="/blog/">&larr; Back to Blog</a>
+  </div>
+
+  <main class="post-body">
+
+    <p>
+      This is a big one. Clock Rings 2026.08.15 brings the whole app into Spanish, rebuilds
+      every clock face so the hands, digits, and rings actually move, and closes out a long
+      pass on accessibility. It's in TestFlight now, ahead of the App Store.
+    </p>
+
+    <h2>Clock Rings speaks Spanish now</h2>
+    <p>
+      Every tab, screen, setting, alert, and the full in-app Help is translated —
+      including the Welcome tour, Pay Estimate, Weather alerts, and Deductions. It reaches
+      further than just the app itself: your <strong>Home &amp; Lock Screen widgets</strong>,
+      your <strong>Apple Watch</strong>, <strong>Live Activities</strong>, and the
+      <strong>Control Center / Lock Screen / Action Button punch control</strong> all follow
+      along too.
+    </p>
+    <p>
+      A new <strong>Language</strong> setting (Settings → Clock &amp; Appearance) lets you
+      pick System, English, or Español — right inside the app, no reopening required. It
+      defaults to System, so a Spanish iPhone comes up in Spanish automatically and nothing
+      changes unless you pick a language yourself. A few things stay English on purpose —
+      postal terms like Tour, Punch, Operations, Virtual Timecard, and OT — and the decimal
+      clock always keeps its period (<code>12.50</code>, never <code>12,50</code>), in every
+      language. Dates read naturally too — "Jul 25" in English, "25 jul" in Spanish.
+    </p>
+
+    <h2>The clocks actually move</h2>
+    <p>
+      Every clock face used to redraw itself once a second by hard-cutting the digits — 9:29
+      simply became 9:30. Now the digits <strong>roll over</strong> and the rings and
+      progress bars <strong>sweep</strong> through the second instead of stepping at the end
+      of it. The Flip face — always drawn as a split-flap board, seam and all — finally
+      flips instead of swapping instantly. (Reduce Motion holds everything still, if that's
+      how you like it.)
+    </p>
+    <p>
+      The ring itself is also properly sized wherever it shows up now — it used to be tuned
+      for the full phone screen and came out too heavy on a widget, heavier still on a watch
+      complication. Every dimension now scales to the surface it's drawn on; the phone face
+      is unchanged.
+    </p>
+
+    <h2>Built for accessibility</h2>
+    <p>
+      At the largest accessibility text sizes, the app used to fall apart — readings and
+      buttons truncated to a letter and an ellipsis, and End Tour could get pushed off the
+      bottom of the screen entirely, out of reach. The Clock screen and Dashboard now
+      <strong>reflow into a single readable column and scroll</strong> at those sizes, so
+      every control stays reachable. Everyday text sizes are unchanged.
+    </p>
+    <p>
+      <strong>VoiceOver</strong> now reads every clock face properly — several, including
+      the widget ring and the watch's Flip face, said nothing at all before. With Spanish
+      turned on, VoiceOver reads the faces in Spanish too.
+    </p>
+
+    <h2>Small things that add up</h2>
+    <ul>
+      <li>A punch the app can't accept — a double-tap on Out to Lunch, End Tour with no
+        tour running — now has its own distinct haptic, so a refused punch no longer feels
+        identical to a successful one</li>
+      <li>A failed Face ID check on a punch now tells you what happened instead of just
+        sitting there looking broken</li>
+      <li>The sideways swipe-to-change-tabs gesture now only works on the Clocks tab, so it
+        stops competing with Reports charts, swipe-to-delete in Punch History, and
+        scrolling the Timecard</li>
+      <li>Two "Both Clocks" layout bugs fixed — a title that could touch the "Standard"
+        label on the Rings face, and a "PM" that could run off the edge on the Flip face</li>
+    </ul>
+
+    <h2>Try it now</h2>
+    <p>
+      This update is in TestFlight ahead of the App Store — join the beta to try it early.
+    </p>
+    <a class="button" href="https://testflight.apple.com/join/C6dqJfXh" target="_blank" rel="noopener">Join the TestFlight Beta</a>
+
+    <p style="margin-top: 32px;">
+      For everything else Clock Rings does, see the <a href="/products/clockrings.html">Clock Rings product page</a>.
+    </p>
+
   </main>
 
   <footer id="contact">
