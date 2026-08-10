@@ -11,18 +11,38 @@ const BLOG_DIR = path.join(ROOT, 'blog');
 const VIDEO_COUNT = 3;
 const CLOCKRINGS_TITLE_MATCH = /clock rings/i;
 
+// A real browser User-Agent; YouTube frequently 429s / bot-blocks requests
+// with a missing or Node-default UA, especially from datacenter (CI) IPs.
+const REQUEST_HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+  Accept: 'application/atom+xml, application/xml, text/xml; q=0.9, */*; q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9',
+};
+
 function fetchFeedOnce(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
+    https.get(url, { headers: REQUEST_HEADERS }, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        res.resume();
         return fetchFeedOnce(res.headers.location).then(resolve, reject);
       }
       if (res.statusCode !== 200) {
+        res.resume();
         return reject(new Error(`Feed request failed: ${res.statusCode}`));
       }
       let data = '';
       res.on('data', (chunk) => (data += chunk));
-      res.on('end', () => resolve(data));
+      res.on('end', () => {
+        // A 200 that isn't the feed (empty body or a bot-challenge HTML page)
+        // is a soft failure — retry rather than crash the parser downstream.
+        if (!data || !data.includes('<feed')) {
+          return reject(
+            new Error(`Feed response was not XML (${data.length} bytes)`)
+          );
+        }
+        resolve(data);
+      });
     }).on('error', reject);
   });
 }
@@ -38,7 +58,8 @@ async function fetchFeed(url, retries = 3) {
     } catch (err) {
       if (attempt === retries) throw err;
       console.log(`Feed fetch attempt ${attempt} failed (${err.message}), retrying...`);
-      await sleep(attempt * 2000);
+      // Exponential-ish backoff (4s, 8s, 12s, ...) to ride out transient 429s.
+      await sleep(attempt * 4000);
     }
   }
 }
@@ -55,24 +76,37 @@ function formatDate(iso) {
   });
 }
 
+function firstGroup(str, re) {
+  const m = str.match(re);
+  return m ? m[1] : null;
+}
+
 function parseAllEntries(xml) {
   const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
-  return entries.map((entry) => {
-    const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)[1];
-    const title = entry.match(/<title>([^<]+)<\/title>/)[1];
-    const link = entry.match(/<link rel="alternate" href="([^"]+)"/)[1];
-    const published = entry.match(/<published>([^<]+)<\/published>/)[1];
-    const descMatch = entry.match(/<media:description>([\s\S]*?)<\/media:description>/);
-    return {
-      videoId,
-      title,
-      link,
-      published,
-      date: formatDate(published),
-      description: descMatch ? descMatch[1].trim() : '',
-      thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-    };
-  });
+  return entries
+    .map((entry) => {
+      // Null-safe: a single malformed entry (missing a field, feed shape drift)
+      // must not throw and abort the whole run — skip it instead.
+      const videoId = firstGroup(entry, /<yt:videoId>([^<]+)<\/yt:videoId>/);
+      const title = firstGroup(entry, /<title>([^<]+)<\/title>/);
+      const link = firstGroup(entry, /<link rel="alternate" href="([^"]+)"/);
+      const published = firstGroup(entry, /<published>([^<]+)<\/published>/);
+      if (!videoId || !title || !link || !published) {
+        console.log(`Skipping malformed feed entry (videoId=${videoId || 'none'}).`);
+        return null;
+      }
+      const descMatch = entry.match(/<media:description>([\s\S]*?)<\/media:description>/);
+      return {
+        videoId,
+        title,
+        link,
+        published,
+        date: formatDate(published),
+        description: descMatch ? descMatch[1].trim() : '',
+        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+      };
+    })
+    .filter(Boolean);
 }
 
 function renderCard(video) {
