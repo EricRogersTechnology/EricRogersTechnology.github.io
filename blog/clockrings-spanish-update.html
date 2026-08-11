@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What's new in Clock Rings 2026.08.15 — Eric Rogers Technology</title>
-  <meta name="description" content="Clock Rings 2026.08.15 brings full Spanish support, clock faces that actually move, and a big accessibility pass — now in TestFlight.">
+  <meta name="description" content="Clock Rings 2026.08.15 brings full Spanish support, clock faces that actually move, a big accessibility pass, and fixes for alarms and worked-hours accuracy — now in TestFlight.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
     (function () {
@@ -67,8 +67,9 @@
 
     <p>
       This is a big one. Clock Rings 2026.08.15 brings the whole app into Spanish, rebuilds
-      every clock face so the hands, digits, and rings actually move, and closes out a long
-      pass on accessibility. It's in TestFlight now, ahead of the App Store.
+      every clock face so the hands, digits, and rings actually move, closes out a long
+      pass on accessibility, and fixes a handful of real bugs around alarms and worked
+      hours. It's in TestFlight now, ahead of the App Store.
     </p>
 
     <h2>Clock Rings speaks Spanish now</h2>
@@ -132,6 +133,21 @@
         scrolling the Timecard</li>
       <li>Two "Both Clocks" layout bugs fixed — a title that could touch the "Standard"
         label on the Rings face, and a "PM" that could run off the edge on the Flip face</li>
+    </ul>
+
+    <h2>Alarms and hours you can trust</h2>
+    <ul>
+      <li>Alarms no longer turn themselves off before you can stop them — a ringing alarm
+        could clear on its own the moment the app ran a background refresh (opening the
+        app, punching, a new day starting, or a cross-device sync); it now keeps ringing
+        until you stop it</li>
+      <li>Alarms no longer disappear from your list on their own — if you use Clock Rings
+        on more than one device, an alarm could vanish when your devices' iCloud sync
+        adopted an out-of-date copy of the list; your alarms now stay put, while changes
+        you make on another device still sync across</li>
+      <li>Worked time is no longer under-counted when a tour has two clock-outs — if a tour
+        ended up with a second, later End Tour punch, the app used the earlier one and
+        shorted that tour's hours and pay estimate; it now uses the later clock-out</li>
     </ul>
 
     <h2 class="beta-callout">Try the next update early</h2>
