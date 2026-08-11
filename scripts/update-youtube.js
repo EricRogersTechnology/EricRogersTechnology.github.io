@@ -217,7 +217,7 @@ const SHARED_HEAD = (title, description) => `<!DOCTYPE html>
         <a href="/Orbit.html">Orbit</a>
         <a href="/#youtube">YouTube</a>
         <a href="/blog/">Blog</a>
-        <a href="/#contact">Contact</a>
+        <a href="/contact/">Contact</a>
       </div>
     </div>
   </nav>
