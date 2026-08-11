@@ -212,6 +212,9 @@ const SHARED_HEAD = (title, description) => `<!DOCTYPE html>
       <div class="topbar-links" id="topbar-links">
         <a href="/#services">Services</a>
         <a href="/#products">Products</a>
+        <a href="/ClockRings.html">ClockRings</a>
+        <a href="/Merit.html">Merit</a>
+        <a href="/Orbit.html">Orbit</a>
         <a href="/#youtube">YouTube</a>
         <a href="/blog/">Blog</a>
         <a href="/#contact">Contact</a>
