@@ -445,9 +445,24 @@ function updateBlogPreview() {
 }
 
 async function main() {
-  const xml = await fetchFeed(FEED_URL);
+  // The feed fetch is the one step that depends on a flaky external service.
+  // YouTube periodically rate-limits GitHub's shared runner IPs (worst during
+  // the congested top-of-hour cron windows). That's a transient upstream blip,
+  // not a bug in this site — so skip this cycle with a warning instead of
+  // failing the workflow and emailing a red X. The next run catches up.
+  let xml;
+  try {
+    xml = await fetchFeed(FEED_URL);
+  } catch (err) {
+    console.warn(`::warning::Skipping update — could not fetch YouTube feed: ${err.message}`);
+    return;
+  }
+
   const allVideos = parseAllEntries(xml);
-  if (allVideos.length === 0) throw new Error('No entries found in feed');
+  if (allVideos.length === 0) {
+    console.warn('::warning::Skipping update — feed had no usable entries.');
+    return;
+  }
 
   updateYouTubeGrid(allVideos.slice(0, VIDEO_COUNT));
 

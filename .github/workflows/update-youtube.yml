@@ -2,7 +2,10 @@ name: Update YouTube video
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # Off the top-of-hour and away from 00:00/06:00 UTC — those are the most
+    # congested GitHub Actions cron windows, where the shared runner IPs get
+    # rate-limited by YouTube. Odd minute + odd hours avoids the pile-up.
+    - cron: '23 1,7,13,19 * * *'
   workflow_dispatch: {}
 
 permissions:
