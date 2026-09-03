@@ -581,6 +581,15 @@ footer a:hover {
   margin-bottom: 6px;
 }
 
+.post-body .cards .card p {
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.post-body .cards .card ul {
+  margin-bottom: 0;
+}
+
 .post-body code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
