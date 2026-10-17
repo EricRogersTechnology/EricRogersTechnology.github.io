@@ -323,6 +323,20 @@ h2 {
 
 .app-info .button {
   margin-top: auto;
+  align-self: center;
+}
+
+.card.product .app-icon {
+  align-self: center;
+}
+
+.card.product .app-info {
+  align-self: stretch;
+}
+
+.card.product .app-info h3 {
+  align-self: stretch;
+  text-align: center;
 }
 
 .app-meta {
