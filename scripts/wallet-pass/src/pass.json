@@ -37,25 +37,7 @@
         ]
       }
     ],
-    "auxiliaryFields": [
-      {
-        "key": "r1",
-        "label": "",
-        "value": "Apple Developer"
-      },
-      {
-        "key": "r2",
-        "label": "",
-        "value": "Home Automation",
-        "textAlignment": "PKTextAlignmentCenter"
-      },
-      {
-        "key": "r3",
-        "label": "",
-        "value": "Tech Support",
-        "textAlignment": "PKTextAlignmentRight"
-      }
-    ],
+    "auxiliaryFields": [],
     "backFields": [
       {
         "key": "website",
