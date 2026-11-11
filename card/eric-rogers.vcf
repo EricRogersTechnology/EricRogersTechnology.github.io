@@ -3,9 +3,28 @@ VERSION:3.0
 N:Rogers;Eric;;;
 FN:Eric Rogers
 ORG:Eric Rogers Technology
-TITLE:Apple Developer, Home Automation & Tech Support
+TITLE:Apple Developer\, Home Automation & Tech Support
 TEL;TYPE=CELL,VOICE:+1-260-207-4335
 EMAIL;TYPE=WORK:Eric@EricRogersTechnology.com
-URL:https://ericrogerstechnology.com
 NOTE:Apple tech support\, smart home consulting\, and website development.
+item1.URL:https://ericrogerstechnology.com
+item1.X-ABLabel:Website
+item2.URL:https://ericrogerstechnology.com/card/
+item2.X-ABLabel:Digital Business Card
+item3.URL:https://calendly.com/rogerse/ts
+item3.X-ABLabel:Book a Session
+item4.URL:https://www.youtube.com/@EricRogersTechnology
+item4.X-ABLabel:YouTube
+item5.URL:https://github.com/EricRogersTechnology
+item5.X-ABLabel:GitHub
+item6.URL:https://facebook.com/EricRogersTechnology
+item6.X-ABLabel:Facebook
+item7.URL:https://x.com/EricRRogers
+item7.X-ABLabel:X
+item8.URL:https://instagram.com/EricRogersPhotography
+item8.X-ABLabel:Instagram (Eric Rogers Photography)
+item9.URL:https://facebook.com/EricRogersPhotography
+item9.X-ABLabel:Facebook (Eric Rogers Photography)
+item10.URL:https://ericrogersphotography.com
+item10.X-ABLabel:Eric Rogers Photography
 END:VCARD
