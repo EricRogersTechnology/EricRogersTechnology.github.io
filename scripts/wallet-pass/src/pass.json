@@ -12,7 +12,13 @@
   "barcodes": [],
   "posterGeneric": {
     "headerFields": [],
-    "footerFields": [],
+    "footerFields": [
+      {
+        "key": "site",
+        "label": "",
+        "value": "EricRogersTechnology.com"
+      }
+    ],
     "backFields": [
       {
         "key": "phone",
