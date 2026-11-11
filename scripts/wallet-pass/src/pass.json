@@ -12,13 +12,7 @@
   "barcodes": [],
   "posterGeneric": {
     "headerFields": [],
-    "footerFields": [
-      {
-        "key": "site",
-        "label": "",
-        "value": "EricRogersTechnology.com"
-      }
-    ],
+    "footerFields": [],
     "backFields": [
       {
         "key": "phone",
@@ -118,5 +112,6 @@
         "value": "Clock Rings, Merit & Orbit — free on the App Store"
       }
     ]
-  }
+  },
+  "suppressStripShine": true
 }
