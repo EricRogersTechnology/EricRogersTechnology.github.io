@@ -696,3 +696,40 @@ a.card:hover {
   width: 160px;
   height: 160px;
 }
+
+
+.qr-themed {
+  display: inline-block;
+  margin: 20px 0;
+  line-height: 0;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.qr-themed img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.qr-themed .qr-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .qr-themed .qr-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .qr-themed .qr-dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .qr-themed .qr-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .qr-themed .qr-dark {
+  display: block;
+}
