@@ -88,21 +88,15 @@
     .walletbtn[hidden] { display: none; }
     .walletbtn svg { width: 22px; height: 22px; }
     .walletbtn + .label { margin-top: 24px; }
-    .qrpair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .qrtile { margin: 0; padding: 12px 12px 8px; border-radius: 16px; border: 1.5px solid transparent; opacity: .5; transition: opacity .2s, border-color .2s; }
-    .qrtile img { display: block; width: 100%; height: auto; border-radius: 10px; }
-    .qrtile figcaption { margin-top: 8px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); }
-    .qt-dark { background: #0e0e10; }
-    .qt-light { background: #ffffff; opacity: 1; border-color: var(--accent); }
-    .qt-light figcaption { color: #555; }
+    .share .qr { display: block; width: 230px; height: 230px; margin: 0 auto; border-radius: 16px; }
+    .share .qr-dark { display: none; }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .qt-dark { opacity: 1; border-color: var(--accent); }
-      :root:not([data-theme="light"]) .qt-light { opacity: .5; border-color: transparent; }
+      :root:not([data-theme="light"]) .share .qr-light { display: none; }
+      :root:not([data-theme="light"]) .share .qr-dark { display: block; }
     }
-    :root[data-theme="dark"] .qt-dark { opacity: 1; border-color: var(--accent); }
-    :root[data-theme="dark"] .qt-light { opacity: .5; border-color: transparent; }
+    :root[data-theme="dark"] .share .qr-light { display: none; }
+    :root[data-theme="dark"] .share .qr-dark { display: block; }
     .share { text-align: center; background: var(--surface); border: 1.5px solid var(--accent); border-radius: 20px; padding: 22px 16px 18px; }
-    .share .qr { width: 220px; height: 220px; background: #fff; padding: 16px; border-radius: 14px; display: block; margin: 0 auto; box-sizing: border-box; }
     .share p { color: var(--text-dim); font-size: .88rem; margin: 12px 0 0; }
 
     .foot { text-align: center; margin-top: 30px; color: var(--text-dim); font-size: .85rem; }
@@ -156,10 +150,8 @@
 
     <h2 class="label">Share this card</h2>
     <div class="share">
-      <div class="qrpair">
-        <figure class="qrtile qt-dark"><img src="/card/qr-white-on-black.png" alt="White on black QR code that opens ericrogerstechnology.com/card" width="150" height="150"><figcaption>White on black</figcaption></figure>
-        <figure class="qrtile qt-light"><img src="/card/qr-dark-on-white.png" alt="Dark on white QR code that opens ericrogerstechnology.com/card" width="150" height="150"><figcaption>Dark on white</figcaption></figure>
-      </div>
+      <img class="qr qr-light" src="/card/qr-dark-on-white.png" alt="QR code that opens ericrogerstechnology.com/card" width="230" height="230">
+      <img class="qr qr-dark" src="/card/qr-white-on-black.png" alt="QR code that opens ericrogerstechnology.com/card" width="230" height="230">
       <p>Scan to open this card on another phone.</p>
     </div>
 
