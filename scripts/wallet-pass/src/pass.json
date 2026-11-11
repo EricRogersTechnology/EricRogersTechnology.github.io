@@ -21,13 +21,6 @@
     "primaryFields": [],
     "secondaryFields": [
       {
-        "key": "role",
-        "label": "WHAT I DO",
-        "value": "Apple Developer, Home Automation & Tech Support"
-      }
-    ],
-    "auxiliaryFields": [
-      {
         "key": "phone",
         "label": "PHONE",
         "value": "260.207.4335",
@@ -42,6 +35,25 @@
         "dataDetectorTypes": [
           "PKDataDetectorTypeLink"
         ]
+      }
+    ],
+    "auxiliaryFields": [
+      {
+        "key": "r1",
+        "label": "",
+        "value": "Apple Developer"
+      },
+      {
+        "key": "r2",
+        "label": "",
+        "value": "Home Automation",
+        "textAlignment": "PKTextAlignmentCenter"
+      },
+      {
+        "key": "r3",
+        "label": "",
+        "value": "Tech Support",
+        "textAlignment": "PKTextAlignmentRight"
       }
     ],
     "backFields": [
