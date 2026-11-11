@@ -13,8 +13,7 @@
     {
       "format": "PKBarcodeFormatQR",
       "message": "https://ericrogerstechnology.com/card/",
-      "messageEncoding": "iso-8859-1",
-      "altText": "ericrogerstechnology.com/card"
+      "messageEncoding": "iso-8859-1"
     }
   ],
   "storeCard": {
