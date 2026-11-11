@@ -9,7 +9,13 @@
   "foregroundColor": "rgb(255, 255, 255)",
   "labelColor": "rgb(0, 105, 255)",
   "sharingProhibited": false,
-  "barcodes": [],
+  "barcodes": [
+    {
+      "format": "PKBarcodeFormatQR",
+      "message": "https://ericrogerstechnology.com/card/",
+      "messageEncoding": "iso-8859-1"
+    }
+  ],
   "storeCard": {
     "primaryFields": [],
     "secondaryFields": [],
