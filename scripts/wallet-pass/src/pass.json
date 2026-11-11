@@ -5,9 +5,9 @@
   "serialNumber": "eric-rogers-technology-card",
   "organizationName": "Eric Rogers Technology",
   "description": "Eric Rogers Technology digital business card",
-  "backgroundColor": "rgb(15, 15, 15)",
-  "foregroundColor": "rgb(255, 255, 255)",
-  "labelColor": "rgb(0, 105, 255)",
+  "backgroundColor": "rgb(0, 0, 0)",
+  "foregroundColor": "rgb(0, 0, 0)",
+  "labelColor": "rgb(0, 0, 0)",
   "sharingProhibited": false,
   "barcodes": [],
   "posterGeneric": {
