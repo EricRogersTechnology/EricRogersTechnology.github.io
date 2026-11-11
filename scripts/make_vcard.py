@@ -1,4 +1,9 @@
-"""Builds card/eric-rogers.vcf (the Save Contact file). Run from the repo root."""
+"""Builds card/eric-rogers.vcf (the Save Contact file). Run from the repo root.
+The contact photo is cropped from scripts/vcard-photo-source.png (a square around the logo and contact lines)."""
+import base64
+import io
+from PIL import Image
+
 
 LINKS = [
     ('Website', 'https://ericrogerstechnology.com'),
@@ -42,6 +47,10 @@ lines = [
 for i, (label, url) in enumerate(LINKS, 1):
     lines.append(f'item{i}.URL:{url}')
     lines.append(f'item{i}.X-ABLabel:{label}')
+photo = Image.open('scripts/vcard-photo-source.png').convert('RGB').crop((0, 140, 1080, 1220)).resize((800, 800), Image.LANCZOS)
+buf = io.BytesIO()
+photo.save(buf, 'JPEG', quality=88)
+lines.append('PHOTO;ENCODING=b;TYPE=JPEG:' + base64.b64encode(buf.getvalue()).decode('ascii'))
 lines.append('END:VCARD')
 
 with open('card/eric-rogers.vcf', 'w', newline='') as f:
