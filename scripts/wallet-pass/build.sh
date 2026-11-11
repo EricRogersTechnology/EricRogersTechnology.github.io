@@ -21,5 +21,5 @@ PY
 openssl smime -binary -sign -md sha256 -certfile .wwdr.pem -signer .pass.pem -inkey "$keys/pass.key" \
   -in manifest.json -out signature -outform DER
 rm -f "$repo/card/eric-rogers.pkpass"
-zip -q -j "$repo/card/eric-rogers.pkpass" pass.json manifest.json signature icon*.png logo*.png )
+zip -q -j "$repo/card/eric-rogers.pkpass" pass.json manifest.json signature *.png )
 echo "Built $repo/card/eric-rogers.pkpass"

@@ -5,7 +5,6 @@
   "serialNumber": "eric-rogers-technology-card",
   "organizationName": "Eric Rogers Technology",
   "description": "Eric Rogers Technology digital business card",
-  "logoText": "Eric Rogers Technology",
   "backgroundColor": "rgb(0, 0, 0)",
   "foregroundColor": "rgb(255, 255, 255)",
   "labelColor": "rgb(0, 105, 255)",
@@ -18,22 +17,63 @@
       "altText": "ericrogerstechnology.com/card"
     }
   ],
-  "generic": {
-    "primaryFields": [
-      { "key": "name", "label": "", "value": "Eric Rogers" }
-    ],
+  "storeCard": {
+    "primaryFields": [],
     "secondaryFields": [
-      { "key": "role", "label": "WHAT I DO", "value": "Apple Developer, Home Automation & Tech Support" }
+      {
+        "key": "role",
+        "label": "WHAT I DO",
+        "value": "Apple Developer, Home Automation & Tech Support"
+      }
     ],
     "auxiliaryFields": [
-      { "key": "phone", "label": "PHONE", "value": "260.207.4335", "dataDetectorTypes": ["PKDataDetectorTypePhoneNumber"] },
-      { "key": "email", "label": "EMAIL", "value": "Eric@EricRogersTechnology.com", "dataDetectorTypes": ["PKDataDetectorTypeLink"] }
+      {
+        "key": "phone",
+        "label": "PHONE",
+        "value": "260.207.4335",
+        "dataDetectorTypes": [
+          "PKDataDetectorTypePhoneNumber"
+        ]
+      },
+      {
+        "key": "email",
+        "label": "EMAIL",
+        "value": "Eric@EricRogersTechnology.com",
+        "dataDetectorTypes": [
+          "PKDataDetectorTypeLink"
+        ]
+      }
     ],
     "backFields": [
-      { "key": "website", "label": "Website", "value": "https://ericrogerstechnology.com", "dataDetectorTypes": ["PKDataDetectorTypeLink"] },
-      { "key": "card", "label": "Digital business card", "value": "https://ericrogerstechnology.com/card/", "dataDetectorTypes": ["PKDataDetectorTypeLink"] },
-      { "key": "book", "label": "Book a tech support session", "value": "https://calendly.com/rogerse/ts", "dataDetectorTypes": ["PKDataDetectorTypeLink"] },
-      { "key": "apps", "label": "Apps", "value": "Clock Rings, Merit & Orbit — free on the App Store" }
+      {
+        "key": "website",
+        "label": "Website",
+        "value": "https://ericrogerstechnology.com",
+        "dataDetectorTypes": [
+          "PKDataDetectorTypeLink"
+        ]
+      },
+      {
+        "key": "card",
+        "label": "Digital business card",
+        "value": "https://ericrogerstechnology.com/card/",
+        "dataDetectorTypes": [
+          "PKDataDetectorTypeLink"
+        ]
+      },
+      {
+        "key": "book",
+        "label": "Book a tech support session",
+        "value": "https://calendly.com/rogerse/ts",
+        "dataDetectorTypes": [
+          "PKDataDetectorTypeLink"
+        ]
+      },
+      {
+        "key": "apps",
+        "label": "Apps",
+        "value": "Clock Rings, Merit & Orbit — free on the App Store"
+      }
     ]
   }
 }
