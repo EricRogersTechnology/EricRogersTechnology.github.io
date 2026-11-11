@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Rogers — Eric Rogers Technology</title>
+  <title>Eric Rogers Technology</title>
   <meta name="description" content="Eric Rogers, Eric Rogers Technology: Apple tech support, smart home consulting, and website development. Save my contact or book a session.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
@@ -39,8 +39,7 @@
     .vcard { max-width: 440px; margin: 0 auto; padding: 36px 18px 48px; }
     .hero { text-align: center; padding: 8px 0 22px; }
     .hero .logo { display: block; margin: 0 auto; width: min(280px, 82%); height: auto; }
-    .hero h1 { font-size: 2rem; letter-spacing: -.02em; margin: 18px 0 6px; line-height: 1.1; }
-    .hero .role { color: var(--text-dim); margin: 0 auto; max-width: 300px; font-size: 1rem; }
+        .hero .role { color: var(--text); margin: 20px auto 0; font-size: 1.15rem; font-weight: 500; line-height: 1.55; text-align: center; }
 
     .save { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 16px; background: var(--accent); color: #fff; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: 0 8px 24px var(--glow); }
     .save svg { width: 22px; height: 22px; }
@@ -66,10 +65,14 @@
     .mark.cashapp { background: #00d64f; font-size: 2.3rem; }
     .mark.paypal { background: #0070ba; font-style: italic; font-family: Georgia, "Times New Roman", serif; }
 
-    .social { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
-    .social a { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 1.5px solid var(--accent); color: var(--text); }
-    .social svg { width: 23px; height: 23px; }
+    .social { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .social a, .social button { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 1.5px solid var(--accent); color: var(--text); }
+    .social svg { width: 21px; height: 21px; }
+    .social button { appearance: none; -webkit-appearance: none; }
+    .social a, .social button { transition: color .15s; }
+    .social a:hover, .social button:hover { color: var(--accent); }
     .social a:active { transform: scale(.94); }
+    .social .theme-toggle { cursor: pointer; font: inherit; padding: 0; }
 
     .share { text-align: center; background: var(--surface); border: 1.5px solid var(--accent); border-radius: 20px; padding: 22px 16px 18px; }
     .share .qr { width: 190px; height: 190px; background: #fff; padding: 9px; border-radius: 14px; display: block; margin: 0 auto; }
@@ -84,8 +87,7 @@
     <header class="hero">
       <img class="logo logo-dark" src="/ert-logo-dark.png" alt="Eric Rogers Technology">
       <img class="logo logo-light" src="/ert-logo-light.png" alt="Eric Rogers Technology">
-      <h1>Eric Rogers</h1>
-      <p class="role">Apple Developer, Home Automation &amp; Tech Support</p>
+      <p class="role">Apple Developer<br>Home Automation<br>Tech Support</p>
     </header>
 
     <a class="save" href="/card/eric-rogers.vcf"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="8" r="4"/><path d="M2.5 21c0-4 3.4-6.5 7.5-6.5M18 13v7M14.5 16.5h7"/></g></svg>Save Contact</a>
@@ -118,6 +120,7 @@
       <a href="https://facebook.com/EricRogersTechnology" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.68 18.63.5 12 .5S0 5.68 0 12.07c0 5.78 4.39 10.57 10.13 11.43v-8.09H7.08v-3.34h3.05V9.41c0-2.99 1.79-4.65 4.53-4.65 1.31 0 2.68.23 2.68.23v2.92h-1.51c-1.49 0-1.95.92-1.95 1.86v2.24h3.32l-.53 3.34h-2.79v8.09C19.61 22.64 24 17.85 24 12.07Z"/></svg></a>
       <a href="https://x.com/EricRRogers" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.83-5.97 6.83H1.66l7.73-8.84L1.24 2.25h6.83l4.72 6.24 5.45-6.24Zm-1.16 17.52h1.83L7.02 4.13H5.06l12.02 15.64Z"/></svg></a>
       <a href="https://ericrogersphotography.com" target="_blank" rel="noopener" aria-label="Eric Rogers Photography"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83m13.79-4-5.74 9.94"/></g></svg></a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor"/></svg></button>
     </div>
 
     <h2 class="label">Share this card</h2>
@@ -128,6 +131,32 @@
 
     <p class="foot"><a href="/">EricRogersTechnology.com</a></p>
   </main>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.getElementById('theme-toggle');
+      var meta = document.getElementById('theme-color-meta');
+      if (!toggle) return;
+      function effectiveTheme() {
+        var explicit = root.getAttribute('data-theme');
+        if (explicit === 'light' || explicit === 'dark') return explicit;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      function sync() {
+        var theme = effectiveTheme();
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff');
+      }
+      sync();
+      toggle.addEventListener('click', function () {
+        var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+    })();
+  </script>
   <script data-goatcounter="https://ericrogerstechnology.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
