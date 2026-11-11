@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Rogers;Eric;;;
+FN:Eric Rogers
+ORG:Eric Rogers Technology
+TITLE:Apple Developer, Home Automation & Tech Support
+TEL;TYPE=CELL,VOICE:+1-260-207-4335
+EMAIL;TYPE=WORK:Eric@EricRogersTechnology.com
+URL:https://ericrogerstechnology.com
+NOTE:Apple tech support\, smart home consulting\, and website development.
+END:VCARD
