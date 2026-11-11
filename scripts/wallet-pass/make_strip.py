@@ -30,13 +30,13 @@ d.line([(W // 2 + 40, y + r), (W - 200, y + r)], fill=(255, 255, 255, 70), width
 d.ellipse([W // 2 - r, y, W // 2 + r, y + 2 * r], outline=(235, 235, 235), width=3)
 d.ellipse([W // 2 - 3, y + r - 3, W // 2 + 3, y + r + 3], fill=(235, 235, 235))
 d.ellipse([W // 2 + 8, y - 7, W // 2 + 19, y + 4], fill=(255, 255, 255))
-y += 2 * r + 26
+y += 2 * r + 30
 
 font = ImageFont.truetype(FONT, 56, index=0)
 for line in ['EricRogersTechnology.com', 'Eric@EricRogersTechnology.com', '260.207.4335']:
     centered(line, y, font, (232, 232, 232))
     y += 68
-centered('CLOCK RINGS   ·   MERIT   ·   ORBIT', y + 4, ImageFont.truetype(FONT, 30, index=1), (140, 140, 140), track=5)
+centered('CLOCK RINGS   ·   MERIT   ·   ORBIT', y + 38, ImageFont.truetype(FONT, 30, index=1), (140, 140, 140), track=5)
 
 out = bg.convert('RGB')
 out.save('src/strip@3x.png')
