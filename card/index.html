@@ -84,6 +84,10 @@
     .social a:active { transform: scale(.94); }
     .social .theme-toggle { cursor: pointer; font: inherit; padding: 0; }
 
+    .walletbtn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 15px; margin-top: 30px; border-radius: 16px; background: #000; color: #fff; border: 1.5px solid var(--accent); font-weight: 700; font-size: 1.02rem; text-decoration: none; }
+    .walletbtn[hidden] { display: none; }
+    .walletbtn svg { width: 22px; height: 22px; }
+    .walletbtn + .label { margin-top: 24px; }
     .share { text-align: center; background: var(--surface); border: 1.5px solid var(--accent); border-radius: 20px; padding: 22px 16px 18px; }
     .share .qr { width: 190px; height: 190px; background: #fff; padding: 9px; border-radius: 14px; display: block; margin: 0 auto; }
     .share p { color: var(--text-dim); font-size: .88rem; margin: 12px 0 0; }
@@ -135,10 +139,12 @@
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor"/></svg></button>
     </div>
 
+    <a class="walletbtn" id="wallet-btn" href="/card/eric-rogers.pkpass" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 9.5h19M16.5 14.5h2"/></g></svg>Add to Apple Wallet</a>
+
     <h2 class="label">Share this card</h2>
     <div class="share">
-      <img class="qr" src="/card/qr.png" alt="QR code for ericrogerstechnology.com/card" width="190" height="190">
-      <p>Scan to open this card on another phone.</p>
+      <img class="qr" src="/card/qr.png" alt="QR code that adds this card to Apple Wallet" width="190" height="190">
+      <p>Scan with an iPhone to add this card to Apple Wallet.</p>
     </div>
 
     <p class="foot"><a href="/">EricRogersTechnology.com</a></p>
@@ -167,6 +173,14 @@
         sync();
       });
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+    })();
+  </script>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var apple = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var btn = document.getElementById('wallet-btn');
+      if (btn && apple) btn.hidden = false;
     })();
   </script>
   <script data-goatcounter="https://ericrogerstechnology.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
