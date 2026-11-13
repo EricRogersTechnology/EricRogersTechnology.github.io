@@ -15,7 +15,7 @@ LINKS = [
     ('X', 'https://x.com/EricRRogers'),
     ('Instagram (Eric Rogers Photography)', 'https://instagram.com/EricRogersPhotography'),
     ('Facebook (Eric Rogers Photography)', 'https://facebook.com/EricRogersPhotography'),
-    ('Eric Rogers Photography', 'https://ericrogersphotography.com'),
+    ('Eric Rogers Photography', 'http://ericrogersphotography.com'),
     ('Clock Rings (App Store)', 'https://apps.apple.com/app/id6778179121'),
     ('Merit (App Store)', 'https://apps.apple.com/app/id6790443097'),
     ('Orbit (App Store)', 'https://apps.apple.com/app/id6792591069'),

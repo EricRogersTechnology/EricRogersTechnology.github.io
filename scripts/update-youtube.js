@@ -254,7 +254,7 @@ const SHARED_FOOTER = `
         <a class="social-icon" href="https://facebook.com/EricRogersPhotography" target="_blank" rel="noopener" aria-label="Facebook – Eric Rogers Photography" title="Facebook – Eric Rogers Photography">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.68 18.63.5 12 .5S0 5.68 0 12.07c0 5.78 4.39 10.57 10.13 11.43v-8.09H7.08v-3.34h3.05V9.41c0-2.99 1.79-4.65 4.53-4.65 1.31 0 2.68.23 2.68.23v2.92h-1.51c-1.49 0-1.95.92-1.95 1.86v2.24h3.32l-.53 3.34h-2.79v8.09C19.61 22.64 24 17.85 24 12.07Z"/></svg>
         </a>
-        <a class="social-icon" href="https://ericrogersphotography.com" target="_blank" rel="noopener" aria-label="Eric Rogers Photography website" title="EricRogersPhotography.com">
+        <a class="social-icon" href="http://ericrogersphotography.com" target="_blank" rel="noopener" aria-label="Eric Rogers Photography website" title="EricRogersPhotography.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83m13.79-4-5.74 9.94"/></svg>
         </a>
         <a class="social-icon" href="/card/" aria-label="Digital business card" title="Digital business card">
