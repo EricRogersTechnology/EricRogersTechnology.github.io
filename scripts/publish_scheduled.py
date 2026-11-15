@@ -6,15 +6,16 @@ served). Each draft starts with a comment:
 
     <!--schedule
     publish: 2026-11-20
+    time: 11:11
     slug: my-post
     title: My post title
     summary: One sentence for the Blog page card.
     -->
 
-When the publish date (US Eastern) arrives, the draft moves to blog/<slug>.html, a card is added to
+When the publish date and time (US Eastern; time is optional, default 00:00) arrive, the draft moves to blog/<slug>.html, a card is added to
 blog/index.html, and the homepage preview is refreshed. Use {{DATE}} in the draft for the post date.
 
-Usage: python3 scripts/publish_scheduled.py [--dry-run] [--date YYYY-MM-DD] [--root PATH]
+Usage: python3 scripts/publish_scheduled.py [--dry-run] [--now 'YYYY-MM-DD HH:MM'] [--root PATH]
 """
 import argparse
 import html
@@ -48,6 +49,9 @@ def parse_draft(path):
             raise SystemExit(f'{path.name}: header is missing "{key}"')
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', meta['publish']):
         raise SystemExit(f'{path.name}: publish must look like 2026-11-20')
+    meta.setdefault('time', '00:00')
+    if not re.fullmatch(r'([01]\d|2[0-3]):[0-5]\d', meta['time']):
+        raise SystemExit(f'{path.name}: time must look like 11:11 (24-hour, US Eastern)')
     if not re.fullmatch(r'[a-z0-9-]+', meta['slug']):
         raise SystemExit(f'{path.name}: slug may only use lowercase letters, numbers and hyphens')
     return {'path': path, 'meta': meta, 'body': raw[m.end():]}
@@ -89,27 +93,28 @@ def update_home_preview(blog_index, home_index):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--dry-run', action='store_true')
-    ap.add_argument('--date')
+    ap.add_argument('--now', help="pretend it is this US Eastern time, e.g. '2026-11-27 11:11'")
     ap.add_argument('--root', default=str(Path(__file__).resolve().parent.parent))
     args = ap.parse_args()
 
     root = Path(args.root)
     draft_dir = root / '_scheduled'
     blog_dir = root / 'blog'
-    today = args.date or datetime.now(ZoneInfo('America/New_York')).strftime('%Y-%m-%d')
+    now = args.now or datetime.now(ZoneInfo('America/New_York')).strftime('%Y-%m-%d %H:%M')
 
     if not draft_dir.is_dir():
         print('No _scheduled folder; nothing to do.')
         return
     drafts = sorted((parse_draft(p) for p in draft_dir.glob('*.html')),
-                    key=lambda d: d['meta']['publish'])
-    print(f'Today (US Eastern): {today}. {len(drafts)} scheduled draft(s).')
+                    key=lambda d: (d['meta']['publish'], d['meta']['time'], d['path'].name))
+    print(f'Now (US Eastern): {now}. {len(drafts)} scheduled draft(s).')
 
     published = 0
     for d in drafts:
         meta, name = d['meta'], d['path'].name
-        if meta['publish'] > today:
-            print(f'  waiting: {name} (publishes {meta["publish"]})')
+        due = f'{meta["publish"]} {meta["time"]}'
+        if due > now:
+            print(f'  waiting: {name} (publishes {due})')
             continue
         dest = blog_dir / f'{meta["slug"]}.html'
         if dest.exists():

@@ -2,8 +2,8 @@ name: Publish scheduled blog posts
 
 on:
   schedule:
-    # Daily at 10:17 UTC (about 5-6 AM US Eastern), off the busiest cron minutes.
-    - cron: '17 10 * * *'
+    # Every 15 minutes, off the top of the hour (the busiest cron minutes), so timed posts go out promptly.
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch: {}
 
 permissions:
