@@ -19,6 +19,7 @@ LINKS = [
     ('Clock Rings (App Store)', 'https://apps.apple.com/app/id6778179121'),
     ('Merit (App Store)', 'https://apps.apple.com/app/id6790443097'),
     ('Orbit (App Store)', 'https://apps.apple.com/app/id6792591069'),
+    ('Waveline (Coming soon)', 'https://ericrogerstechnology.com/products/waveline.html'),
 ]
 
 def fold(line):
