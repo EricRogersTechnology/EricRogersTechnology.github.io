@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Waveline — Eric Rogers Technology</title>
-  <meta name="description" content="Waveline is a remote control for your software-defined radio on iPhone, iPad, Apple Watch, and Apple TV — tune, listen, scan, record, and decode Morse from anywhere in the house.">
+  <meta name="description" content="Waveline is a remote control for your SDRplay nRSP-ST on iPhone, iPad, Apple Watch, and Apple TV — tune, listen, scan, record, and decode, from anywhere.">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
   <script>
     (function () {
@@ -59,12 +59,11 @@
     <div class="container">
       <img class="app-icon-lg" src="/waveline-icon.png" alt="Waveline app icon">
       <h1>Waveline</h1>
-      <p class="page-meta">Coming soon &middot; A remote control for your software-defined radio on iPhone, iPad, Apple Watch &amp; Apple TV</p>
+      <p class="page-meta">Coming soon · A remote control for your software-defined radio on iPhone, iPad, Apple Watch &amp; Apple TV</p>
       <p class="subtext">
-        Waveline puts your software-defined radio in your pocket. Connect to the computer
-        running SDRconnect on your network, then tune, listen, scan your favourite channels,
-        record what you hear and read Morse code &mdash; from anywhere in the house, or
-        anywhere at all over Tailscale.
+        Waveline puts your nRSP-ST networked receiver in your pocket. Connect to the computer
+        running SDRconnect, then tune, listen, scan, record, and decode — from the couch,
+        the yard, or anywhere at all over a private VPN like Tailscale.
       </p>
       <a class="button" href="https://ericrogerstechnology.com/Waveline/SUPPORT.html">Support &amp; Setup</a>
     </div>
@@ -76,48 +75,108 @@
 
   <main class="post-body">
 
+    <h2>Screenshots</h2>
+    <!-- Waveline isn't on the App Store yet, so these are stored on the site. Once it has an App Store ID,
+         swap this block for <div class="shots" data-shots="APP_ID" data-store="https://apps.apple.com/app/idAPP_ID">
+         like the other product pages, and screenshots.js will keep it in step with the store. -->
+    <div class="shots" id="waveline-shots">
+      <div class="shots-tabs">
+        <button type="button" data-key="iphone" aria-pressed="true">iPhone</button>
+        <button type="button" data-key="ipad" aria-pressed="false">iPad</button>
+      </div>
+      <div class="shots-row" data-key="iphone" role="region" aria-label="iPhone screenshots">
+        <img src="/products/waveline/iphone-01-tuner.jpg" alt="Tuner with frequency, S-meter, spectrum and band plan" style="height: 420px; width: 193px;" loading="eager" decoding="async">
+        <img src="/products/waveline/iphone-02-memories.jpg" alt="Memories with banks from the Bank Library" style="height: 420px; width: 193px;" loading="eager" decoding="async">
+        <img src="/products/waveline/iphone-03-scan.jpg" alt="Scanning, stopped on an active NOAA weather channel" style="height: 420px; width: 193px;" loading="lazy" decoding="async">
+        <img src="/products/waveline/iphone-04-cw.jpg" alt="CW decoder reading Morse code" style="height: 420px; width: 193px;" loading="lazy" decoding="async">
+        <img src="/products/waveline/iphone-05-night.jpg" alt="Red Night mode" style="height: 420px; width: 193px;" loading="lazy" decoding="async">
+      </div>
+      <div class="shots-row" data-key="ipad" role="region" aria-label="iPad screenshots" style="display: none;">
+        <img src="/products/waveline/ipad-01-tuner.jpg" alt="iPad tuner with a large waterfall" style="height: 380px; width: 285px;" loading="lazy" decoding="async">
+        <img src="/products/waveline/ipad-02-memories.jpg" alt="iPad memories" style="height: 380px; width: 285px;" loading="lazy" decoding="async">
+        <img src="/products/waveline/ipad-03-scan.jpg" alt="iPad scanning" style="height: 380px; width: 285px;" loading="lazy" decoding="async">
+        <img src="/products/waveline/ipad-04-night.jpg" alt="iPad in Night mode" style="height: 380px; width: 285px;" loading="lazy" decoding="async">
+      </div>
+    </div>
+    <script>
+      (function () {
+        var box = document.getElementById('waveline-shots');
+        if (!box) return;
+        box.querySelectorAll('.shots-tabs button').forEach(function (b) {
+          b.addEventListener('click', function () {
+            box.querySelectorAll('.shots-tabs button').forEach(function (x) {
+              x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+            });
+            box.querySelectorAll('.shots-row').forEach(function (row) {
+              row.style.display = row.dataset.key === b.dataset.key ? '' : 'none';
+            });
+          });
+        });
+      })();
+    </script>
+
+    <h2>How it works</h2>
+    <p>
+      SDRplay's nRSP-ST is a receiver that lives on your network. SDRconnect — the app or the
+      headless version — runs on a Mac, PC, or Raspberry Pi and talks to it. Waveline connects
+      to that computer and becomes the radio in your hand: a big frequency readout, a live
+      spectrum and waterfall, and every control you'd reach for, with the audio streaming
+      straight to your iPhone, AirPods, or car. Nothing is opened to the internet; away from
+      home, a private VPN like Tailscale gets you back in.
+    </p>
+
     <h2>Tune</h2>
     <ul>
-      <li><strong>A big, clear frequency readout</strong> with a smooth tuning dial, step sizes, and quick band presets</li>
-      <li><strong>Live spectrum and scrolling waterfall</strong> &mdash; tap a signal to tune straight to it</li>
-      <li><strong>Every mode</strong> &mdash; AM, SAM, USB, LSB, CW, narrow FM, and broadcast FM, with bandwidth, RF gain, AGC, and antenna controls</li>
-      <li><strong>Picks up where you left off</strong> &mdash; each receiver's frequency, mode, and gain come back when you connect</li>
+      <li><strong>Frequency, dial &amp; presets</strong> — a big, clear readout with a smooth tuning dial, step sizes, and band presets; every mode: AM, SAM, USB, LSB, CW, narrow FM, and broadcast FM</li>
+      <li><strong>Spectrum &amp; waterfall</strong> — tap a signal to tune to it, pinch to zoom, drag to look along the band, with peak hold and averaging</li>
+      <li><strong>Band plan</strong> — coloured strips show which band you're looking at: ham, broadcast, aviation, marine, CB, and more</li>
+      <li><strong>Always centred</strong> — Waveline keeps the frequency you're on away from the edges of the span, where reception falls off</li>
+      <li><strong>S-meter</strong> — readings from S0 to S9+60, with a two-minute signal history</li>
+      <li><strong>Receiver controls</strong> — bandwidth, RF gain, AGC, antenna, squelch, noise reduction, and FM stereo with station names (RDS)</li>
     </ul>
 
-    <h2>Listen &amp; record</h2>
+    <h2>Memories &amp; scanning</h2>
     <ul>
-      <li><strong>Low-latency audio</strong> that keeps playing in the background</li>
-      <li><strong>Volume, mute, and squelch</strong>, plus noise reduction and low-cut filters</li>
-      <li><strong>Record</strong> what you hear, then play it back, share it, or find it in the Files app</li>
+      <li><strong>Banks &amp; favourites</strong> — save channels with a tap, star the ones you love, and sort each bank your own way</li>
+      <li><strong>Bank Library</strong> — ready-made banks to pick from: NOAA Weather, aviation, marine, ham calling frequencies, FRS/GMRS, MURS, CB, shortwave bands, satellites, and more</li>
+      <li><strong>Bring your lists</strong> — import from CHIRP, RadioReference, SDR++, SDR#, or your radio's programming software; share channels as text or a CSV</li>
+      <li><strong>Scan</strong> — a bank, your favourites, or a frequency range, with a priority channel, a hit log, and Spectrum Assist, which checks nearby channels straight from the spectrum without retuning</li>
+      <li><strong>Backup &amp; Restore</strong> — one file holds your memories, radios, logbook, and settings, plus private iCloud sync for memories</li>
     </ul>
 
-    <h2>Scan</h2>
+    <h2>Listen, record &amp; log</h2>
     <ul>
-      <li><strong>Memories and banks</strong> &mdash; save channels with one tap, or import your channel list from your radio's programming software (CSV)</li>
-      <li><strong>Scan a bank or everything</strong> &mdash; stop until the channel goes quiet, listen for a set time, or hold on the first hit</li>
-      <li><strong>Priority channel, skip, and a hit log</strong>, with optional recording of every hit</li>
+      <li><strong>Low-latency audio</strong> that keeps playing in the background, with Lock Screen controls</li>
+      <li><strong>Record</strong> what you hear, automatically whenever the squelch opens, or on a schedule</li>
+      <li><strong>Audio tools</strong> — a notch filter that finds an annoying whistle for you, bass and treble, and a leveler for loud and quiet stations</li>
+      <li><strong>Logbook</strong> — log a station with one tap (time, frequency, mode, and signal filled in), then export it for a spreadsheet or your ham logging program (ADIF)</li>
     </ul>
 
     <h2>Decode</h2>
     <ul>
-      <li><strong>CW decoder</strong> &mdash; finds the Morse tone and speed for you, and stays quiet on plain noise</li>
-      <li><strong>Live Transcript</strong> &mdash; turns voice traffic into text with Apple's speech recognition</li>
+      <li><strong>Live Transcript</strong> — voice traffic turned into text with Apple's speech recognition</li>
+      <li><strong>CW decoder</strong> — finds the Morse tone and speed for you, and stays quiet on plain noise</li>
+      <li><strong>Digital modes</strong> — APRS and packet, pagers (POCSAG), RTTY, NAVTEX, ACARS, SSTV pictures, and weather fax, all decoded right on your device</li>
+      <li><strong>Tones</strong> — see the CTCSS tone, DCS code, or DTMF digits a repeater or radio is using</li>
     </ul>
 
-    <h2>Make it yours</h2>
+    <h2>What's on</h2>
     <ul>
-      <li><strong>Light, Dark, and a red Night mode</strong> that protects your night vision</li>
-      <li><strong>Accent colours, waterfall palettes, and glance chips</strong> you choose &mdash; each chip opens the setting it shows</li>
-      <li><strong>Accessible</strong> &mdash; VoiceOver, larger text, Reduce Motion, and colours that meet contrast guidelines</li>
+      <li><strong>Shortwave schedule</strong> — who's on the frequency you're tuned to right now, and everything on the air by band, from the EiBi schedule</li>
+      <li><strong>Band conditions</strong> — HF band ratings and solar data at a glance</li>
+      <li><strong>Satellites</strong> — when the International Space Station and other ham satellites pass over you, and one tap to listen with the Doppler shift corrected automatically</li>
+      <li><strong>Public receivers</strong> — a list of nRSP-ST receivers their owners share with everyone, with live status</li>
     </ul>
 
     <h2>Everywhere you need it</h2>
     <ul>
-      <li><strong>iPhone, iPhone Duo &amp; iPad</strong> &mdash; a two-column layout with a big waterfall on iPad and unfolded iPhone Duo</li>
-      <li><strong>Apple Watch</strong> &mdash; a remote for the iPhone app: turn the Digital Crown to tune, pick a memory, start a scan</li>
-      <li><strong>Apple TV</strong> &mdash; a big-screen listening post with spectrum and waterfall</li>
-      <li><strong>Siri, Shortcuts &amp; Control Center</strong> &mdash; "Listen with Waveline", "Scan with Waveline", and one-tap Listen, Scan, and Stop controls</li>
-      <li><strong>Away from home</strong> &mdash; connect over Tailscale, with nothing opened to the internet</li>
+      <li><strong>iPhone, iPhone Duo &amp; iPad</strong> — a two-column layout with a big waterfall on iPad and unfolded iPhone Duo, plus keyboard shortcuts and scroll-wheel tuning</li>
+      <li><strong>Apple Watch</strong> — a remote for the iPhone app: turn the Digital Crown to tune, pick a memory, scan your favourites</li>
+      <li><strong>Apple TV</strong> — a big-screen listening post with spectrum and waterfall</li>
+      <li><strong>Siri, Shortcuts, widgets &amp; Control Center</strong> — "Listen with Waveline", "Scan with Waveline", and one-tap Listen, Scan, and Stop</li>
+      <li><strong>Make it yours</strong> — Light, Dark, and a red Night mode that protects your night vision; accent colours, waterfall palettes, and a main screen you arrange</li>
+      <li><strong>Accessible</strong> — VoiceOver, larger text, Reduce Motion, and colours that meet contrast guidelines</li>
+      <li><strong>CarPlay</strong> — planned</li>
     </ul>
 
     <h2>Try it first</h2>
@@ -128,13 +187,15 @@
 
     <h2>What you need</h2>
     <p>
-      Waveline is a remote control. It needs a compatible SDR receiver and a computer on your
-      network (Mac, Windows, Linux, or Raspberry Pi) running SDRconnect with its WebSocket API
-      turned on. Waveline doesn't contain a radio and can't receive anything on its own.
+      Waveline is a remote control. It needs an SDRplay receiver such as the nRSP-ST and a
+      computer on your network (Mac, Windows, Linux, or Raspberry Pi) running SDRconnect with
+      its WebSocket API turned on. Waveline doesn't contain a radio and can't receive anything
+      on its own. Digital voice (DMR, P25, D-STAR, C4FM) can be tuned but not decoded.
     </p>
     <p>
-      No accounts, no ads, and no tracking &mdash; Waveline only talks to the computer you
-      connect it to. See the <a href="https://ericrogerstechnology.com/Waveline/PRIVACY.html">privacy policy</a>.
+      No accounts, no ads, and no tracking — Waveline talks to the computer you connect it
+      to, plus a few public data sources only when you open the feature that uses them. See the
+      <a href="https://ericrogerstechnology.com/Waveline/PRIVACY.html">privacy policy</a>.
     </p>
 
     <h2 class="beta-callout">Coming soon to the App Store</h2>
@@ -150,6 +211,7 @@
 
     <p style="text-align: center; font-size: 0.9em; opacity: 0.75;">
       Waveline is an independent app and is not affiliated with or endorsed by SDRplay.
+      SDRplay, nRSP-ST, and SDRconnect are trademarks of their owners.
     </p>
 
   </main>
