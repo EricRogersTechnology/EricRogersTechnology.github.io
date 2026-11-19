@@ -215,6 +215,7 @@ const SHARED_HEAD = (title, description) => `<!DOCTYPE html>
         <a href="/ClockRings.html">Clock Rings</a>
         <a href="/Merit.html">Merit</a>
         <a href="/Orbit.html">Orbit</a>
+        <a href="/Waveline.html">Waveline</a>
         <a href="/#youtube">YouTube</a>
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
