@@ -1,9 +1,22 @@
-// Shows the current App Store screenshots for an app. The images come straight from Apple's public
-// lookup API, so they change on their own whenever the screenshots are updated on the App Store.
+// Shows the current App Store screenshots for an app on every device it supports (iPhone, iPad, Mac,
+// Apple TV, Apple Watch). The list comes from products/screenshots.json, which a GitHub Action
+// refreshes from the App Store pages every few hours, so the gallery follows the App Store on its own.
+// If that file can't be loaded, it falls back to Apple's lookup API (iPhone and iPad only).
 // Markup: <div class="shots" data-shots="APP_ID" data-store="https://apps.apple.com/app/idAPP_ID">
 (function () {
-  function resize(url, size) {
-    return url.replace(/\/\d+x\d+(bb|w|h)\.(jpg|png|webp)$/, '/' + size + 'bb.webp');
+  var DEVICES = [
+    { key: 'iphone', label: 'iPhone', height: 420 },
+    { key: 'ipad', label: 'iPad', height: 380 },
+    { key: 'mac', label: 'Mac', height: 270 },
+    { key: 'tv', label: 'Apple TV', height: 230 },
+    { key: 'watch', label: 'Apple Watch', height: 300 }
+  ];
+
+  // shots: [{url (App Store template with {w}x{h}{c}.{f}), w, h}]
+  function imageUrl(shot, displayHeight) {
+    var h = displayHeight * 2;
+    var w = Math.round(h * shot.w / shot.h);
+    return shot.url.replace('{w}', w).replace('{h}', h).replace('{c}', 'bb').replace('{f}', 'webp');
   }
 
   function render(box, store, kinds) {
@@ -17,17 +30,18 @@
     function show(kind) {
       row.textContent = '';
       row.scrollLeft = 0;
-      kind.urls.forEach(function (url, i) {
+      kind.shots.forEach(function (shot, i) {
         var a = document.createElement('a');
         a.href = store;
         a.target = '_blank';
         a.rel = 'noopener';
         var img = document.createElement('img');
-        img.src = resize(url, kind.size);
+        img.src = imageUrl(shot, kind.height);
         img.alt = kind.label + ' screenshot ' + (i + 1);
+        img.style.height = kind.height + 'px';
+        img.style.width = Math.round(kind.height * shot.w / shot.h) + 'px';
         img.loading = i < 2 ? 'eager' : 'lazy';
         img.decoding = 'async';
-        img.className = 'shots-' + kind.key;
         a.appendChild(img);
         row.appendChild(a);
       });
@@ -55,23 +69,54 @@
     show(kinds[0]);
   }
 
-  document.querySelectorAll('[data-shots]').forEach(function (box) {
-    var id = box.getAttribute('data-shots');
-    var store = box.getAttribute('data-store');
-    fetch('https://itunes.apple.com/lookup?id=' + encodeURIComponent(id) + '&country=us&entity=software')
+  function kindsFrom(byDevice) {
+    var kinds = [];
+    DEVICES.forEach(function (d) {
+      var shots = byDevice[d.key];
+      if (shots && shots.length) kinds.push({ key: d.key, label: d.label, height: d.height, shots: shots });
+    });
+    return kinds;
+  }
+
+  // Fallback: Apple's lookup API, which only knows iPhone and iPad.
+  function fromLookup(id) {
+    return fetch('https://itunes.apple.com/lookup?id=' + encodeURIComponent(id) + '&country=us&entity=software')
       .then(function (r) { return r.json(); })
       .then(function (data) {
         var app = data.results && data.results[0];
-        if (!app) return;
-        var kinds = [];
-        if (app.screenshotUrls && app.screenshotUrls.length) {
-          kinds.push({ key: 'iphone', label: 'iPhone', urls: app.screenshotUrls, size: '500x1100' });
+        if (!app) return {};
+        function convert(urls) {
+          return (urls || []).map(function (u) {
+            return { url: u.replace(/\/\d+x\d+(bb|w|h)\.(jpg|png|webp)$/, '/{w}x{h}{c}.{f}'), w: 1, h: 2.17 };
+          });
         }
-        if (app.ipadScreenshotUrls && app.ipadScreenshotUrls.length) {
-          kinds.push({ key: 'ipad', label: 'iPad', urls: app.ipadScreenshotUrls, size: '700x1000' });
-        }
-        if (kinds.length) render(box, store, kinds);
+        var out = { iphone: convert(app.screenshotUrls) };
+        // iPad screenshots are roughly 3:4
+        out.ipad = convert(app.ipadScreenshotUrls).map(function (s) { s.h = 1.333; return s; });
+        return out;
+      });
+  }
+
+  var filePromise = null;
+  function loadFile() {
+    if (!filePromise) {
+      filePromise = fetch('/products/screenshots.json')
+        .then(function (r) { if (!r.ok) throw new Error('no file'); return r.json(); });
+    }
+    return filePromise;
+  }
+
+  document.querySelectorAll('[data-shots]').forEach(function (box) {
+    var id = box.getAttribute('data-shots');
+    var store = box.getAttribute('data-store');
+    loadFile()
+      .then(function (all) {
+        var kinds = kindsFrom(all[id] || {});
+        if (!kinds.length) throw new Error('no screenshots in file');
+        return kinds;
       })
+      .catch(function () { return fromLookup(id).then(kindsFrom); })
+      .then(function (kinds) { if (kinds && kinds.length) render(box, store, kinds); })
       .catch(function () { /* keep the fallback link */ });
   });
 })();

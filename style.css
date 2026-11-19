@@ -778,8 +778,7 @@ a.card:hover {
 
 .shots-row img {
   display: block;
-  height: 420px;
-  width: auto;
+  max-width: none;
 }
 
 .shots-fallback {
