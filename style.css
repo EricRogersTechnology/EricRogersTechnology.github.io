@@ -733,3 +733,55 @@ a.card:hover {
 :root[data-theme="dark"] .qr-themed .qr-dark {
   display: block;
 }
+
+
+.shots-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.shots-tabs button {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.shots-tabs button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.shots-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 4px 2px 14px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.shots-row a {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  line-height: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.shots-row img {
+  display: block;
+  height: 420px;
+  width: auto;
+}
+
+.shots-fallback {
+  margin: 0;
+}
